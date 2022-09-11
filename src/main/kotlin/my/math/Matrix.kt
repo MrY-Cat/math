@@ -86,5 +86,4 @@ class Matrix<T : Any>(val row:Int, val col:Int = row, init:(Int, Int) -> T)
         }
         return result
     }
-
 }
