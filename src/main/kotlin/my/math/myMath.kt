@@ -124,7 +124,7 @@ fun integerPartitionOrderly(n:Int, split:Int):Matrix<Int>
  * @param n 总数.
  * @param countInGroups 每一组指定的个数.
  * @exception Exception 总数n和每一组所需的个数均不能为负数.
- * @exception Exception 每一组所需个数之和应等于总数n.
+ * @exception Exception 每一组指定的个数之和应等于总数n.
  * @author qq2278010681
  */
 fun groupingCombinationsOrderly(n:Int, vararg countInGroups:Int):BigInteger
