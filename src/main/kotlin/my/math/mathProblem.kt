@@ -1,6 +1,7 @@
 package my.math
 //mathProblem.kt
 import java.math.BigDecimal
+import kotlin.math.absoluteValue
 import kotlin.math.pow
 
 /**
@@ -17,10 +18,10 @@ import kotlin.math.pow
 fun gatherEventClusterEr(n:Int, vararg probabilities:Double,calculationAccuracyOfInfiniteSeries:Int?=null):BigDecimal
 {
     if(probabilities.size!=n) throw Exception("概率数组probabilities应有n个值")
-    if(probabilities.any{it<0.0||it>1.0}||probabilities.sum()!=1.0) throw Exception("n个事件的概率均应属于0到1，且总和应为1")
+    if(probabilities.any{it<0.0||it>1.0}||(1.0-probabilities.sum()).absoluteValue>0.0000000001) throw Exception("n个事件的概率均应属于0到1，且总和应为1")
     //若未给出计算项数，无穷级数默认计算项数为：2/事件组中最小概率.
     @Suppress("LocalVariableName")
-    val CAOIS= calculationAccuracyOfInfiniteSeries ?: (2/probabilities.min()).toInt()
+    val CAOIS= calculationAccuracyOfInfiniteSeries ?: (2/probabilities.min()).toInt().coerceAtLeast(30)
     var gatherEr= BigDecimal.ZERO
     for(r in n..CAOIS)
     {
