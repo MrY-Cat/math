@@ -1,4 +1,4 @@
-package my.math
+package yyd.mrycat.math
 //myMath.kt
 import java.math.BigInteger
 
@@ -78,7 +78,7 @@ fun C(n:Int, r:Int): BigInteger
 fun integerPartitionOrderly(n:Int, split:Int):Matrix<Int>
 {
     if(n<=0||split<=0) throw Exception("被拆分数n和split均应为正整数")
-    val matrix= Matrix(C(n - 1, split - 1).toInt(), split){_,_->0}//拆分矩阵
+    val matrix= Matrix(C(n-1, split-1).toInt(), split){ _, _->0}//拆分矩阵
     /*拆分结果算法为：
       首个拆分结果为[n-split+1,...,1]
       根据前一个拆分结果，按照规则"从右往左除末尾元素外首个不是1的元素a将自身分1给其右侧元素b，同时b右侧所有元素把自身仅保留1，多出的数还给b"便得到下一个拆分结果

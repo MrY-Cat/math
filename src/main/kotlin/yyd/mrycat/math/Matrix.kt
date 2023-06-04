@@ -1,4 +1,4 @@
-package my.math
+package yyd.mrycat.math
 
 /**
  * 矩阵类

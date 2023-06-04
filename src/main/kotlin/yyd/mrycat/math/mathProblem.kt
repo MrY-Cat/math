@@ -1,5 +1,6 @@
-package my.math
+package yyd.mrycat.math
 //mathProblem.kt
+import java.lang.StrictMath.pow
 import java.math.BigDecimal
 import kotlin.math.absoluteValue
 import kotlin.math.pow
@@ -26,11 +27,11 @@ fun gatherEventClusterEr(n:Int, vararg probabilities:Double,calculationAccuracyO
     for(r in n..CAOIS)
     {
         var pEr= BigDecimal.ZERO
-        val splitMatrix=integerPartitionOrderly(r-1, n-1)//计算最内层循环所用到的拆分矩阵
+        val splitMatrix= integerPartitionOrderly(r-1, n-1)//计算最内层循环所用到的拆分矩阵
         for( i in 1..n)
         {
             var pAi= BigDecimal.ZERO
-            for(j in 1..C(r-2,n-2).toLong())
+            for(j in 1..C(r-2, n-2).toLong())
             {
                 var pBj= BigDecimal.ONE
                 for(k in 1..n)
@@ -47,4 +48,21 @@ fun gatherEventClusterEr(n:Int, vararg probabilities:Double,calculationAccuracyO
         gatherEr+= BigDecimal.valueOf(r.toLong())*pEr
     }
     return gatherEr
+}
+
+//使用马尔科夫链的计算方式
+fun gatherEventClusterEr2(n:Int, vararg probabilities:Double):BigDecimal
+{
+    if(probabilities.size!=n) throw Exception("概率数组probabilities应有n个值")
+    if(probabilities.any{it<0.0||it>1.0}||(1.0-probabilities.sum()).absoluteValue>0.0000000001) throw Exception("n个事件的概率均应属于0到1，且总和应为1")
+    var gatherEr= BigDecimal.ZERO
+    for(s in 0..n-1)//s个独立变量，每个都可能是1-n
+    {
+        val matrix= Matrix(pow(n.toDouble(), s.toDouble()).toInt(), s){ _, _ ->0}
+
+        for(i in 1..pow(n.toDouble(),s.toDouble()).toLong())//共n^s种情况
+        {
+
+        }
+    }
 }
