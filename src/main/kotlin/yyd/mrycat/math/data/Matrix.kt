@@ -54,7 +54,7 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
     /**
      * 存储矩阵元素的一维数组.
      */
-    private val data = Array<Number>(size) { index -> (init(index/row+1, index%row+1)) }
+    private val data = Array<Number>(size) { index -> (init((index/col)+1, (index%col)+1)) }
 
     /**
      * 获取矩阵元素.
