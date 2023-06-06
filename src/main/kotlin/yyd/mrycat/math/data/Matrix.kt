@@ -1,5 +1,6 @@
 package yyd.mrycat.math.data
 /*✔[RFC-1]*/
+import jdk.jfr.Experimental
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.exception.MathIndexOutOfBoundsException
 import java.math.BigDecimal
@@ -114,6 +115,8 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
 
     /**
      * 计算矩阵的行列式.
+     *
+     * //目前det在某些情况下会导致计算异常
      * @throws MathIllegalException 非方阵的矩阵进行该运算时.
      */
     fun det():Double
