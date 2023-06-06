@@ -1,66 +1,13 @@
 package yyd.mrycat.math
 //myMath.kt
+import yyd.mrycat.math.combinatorial.C
+import yyd.mrycat.math.combinatorial.factorial
+import yyd.mrycat.math.data.Matrix
+import yyd.mrycat.math.exception.MathException
+import yyd.mrycat.math.exception.MathIllegalException
 import java.math.BigInteger
 
-/**
- * 阶乘公式.
- * @return 非负整数n的阶乘.
- * @exception Exception 阶乘的参数不能为负整数.
- * @author qq2278010681
- */
-fun factorial(n:Int):BigInteger
-{
-    if(n<0) throw Exception("阶乘的参数不能为负整数")
-    if(n==0) return BigInteger.ONE
-    var bigResult=BigInteger.ONE
-    for(i in 1L..n.toLong())
-    {
-        bigResult*=BigInteger.valueOf(i)
-    }
-    return bigResult
-}
 
-/**
- * 排列数公式.
- * @return 从n(非负整数)中选r(非负整数)个的排列数.
- * @exception Exception 参数n和r均不能为负整数.
- * @author qq2278010681
- */
-@Suppress("FunctionName")
-fun A(n:Int, r:Int): BigInteger
-{
-    if(n < 0 || r < 0) throw Exception("参数n和r均不能为负整数")
-    if(n < r) return BigInteger.ZERO
-    if(n == r) return factorial(n)
-    var bigResult = BigInteger.ONE
-    for(i in 1L..r.toLong())
-    {
-        bigResult *= BigInteger.valueOf(n+1-i)
-    }
-    return bigResult
-}
-
-/**
- * 组合数公式.
- * @return 从n(非负整数)中选r(非负整数)个的组合数.
- * @exception Exception 参数n和r均不能为负整数.
- * @author qq2278010681
- */
-@Suppress("FunctionName")
-fun C(n:Int, r:Int): BigInteger
-{
-    if(n < 0 || r < 0) throw Exception("参数n和r均不能为负整数")
-    if(n < r) return BigInteger.ZERO
-    if(n == r) return BigInteger.ONE
-    if(2 * r > n) return C(n, n - r)
-    var bigResult=BigInteger.ONE
-    for(i in 1L..r.toLong())
-    {
-        bigResult*=BigInteger.valueOf((n+1-i))
-        bigResult /= BigInteger.valueOf(i)//由于连续的i个数中必有i的倍数，此步计算结果为整数
-    }
-    return bigResult
-}
 
 /**
  * 正整数有序拆分.
@@ -77,7 +24,7 @@ fun C(n:Int, r:Int): BigInteger
  */
 fun integerPartitionOrderly(n:Int, split:Int):Matrix<Int>
 {
-    if(n<=0||split<=0) throw Exception("被拆分数n和split均应为正整数")
+    if(n<=0||split<=0) throw MathIllegalException("被拆分数n和split均应为正整数")
     val matrix= Matrix(C(n-1, split-1).toInt(), split){ _, _->0}//拆分矩阵
     /*拆分结果算法为：
       首个拆分结果为[n-split+1,...,1]
@@ -129,13 +76,13 @@ fun integerPartitionOrderly(n:Int, split:Int):Matrix<Int>
  */
 fun groupingCombinationsOrderly(n:Int, vararg countInGroups:Int):BigInteger
 {
-    if(n<0||countInGroups.any{it<0}) throw Exception("总数n和每一组所需的个数均不能为负数")
-    if(n!=countInGroups.sum()) throw Exception("每一组所需个数之和应等于总数n")
+    if(n<0||countInGroups.any{it<0}) throw  MathIllegalException("总数n和每一组所需的个数均不能为负数")
+    if(n!=countInGroups.sum()) throw  MathIllegalException("每一组所需个数之和应等于总数n")
     //由排列组合公式知道，结果为n!/(countInGroups[0]!*countInGroups[1]!*...)
-    var bigResult= factorial(n)
+    var bigResult= factorial(n.toLong())
     countInGroups.forEach()
     {
-        bigResult/= factorial(it)
+        bigResult/= factorial(it.toLong())
     }
     return bigResult
 }

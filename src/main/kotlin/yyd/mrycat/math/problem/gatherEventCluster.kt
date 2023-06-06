@@ -1,5 +1,11 @@
-package yyd.mrycat.math
+package yyd.mrycat.math.problem
 //mathProblem.kt
+import yyd.mrycat.math.combinatorial.C
+import yyd.mrycat.math.data.Matrix
+import yyd.mrycat.math.exception.MathException
+import yyd.mrycat.math.exception.MathIllegalException
+import yyd.mrycat.math.groupingCombinationsOrderly
+import yyd.mrycat.math.integerPartitionOrderly
 import java.lang.StrictMath.pow
 import java.math.BigDecimal
 import kotlin.math.absoluteValue
@@ -12,14 +18,13 @@ import kotlin.math.pow
  * @param n 事件总数.
  * @param probabilities 每个事件的概率.
  * @param calculationAccuracyOfInfiniteSeries 计算E(r)=ΣrP(r)时，无穷级数计算的项数，不指定时默认为2/probabilities.min().
- * @exception Exception 概率数组probabilities应有n个值.
- * @exception Exception n个事件的概率均应属于0到1，且总和应为1.
- * @author qq2278010681
+ * @exception MathIllegalException 概率数组probabilities应有n个值.
+ * @exception MathIllegalException n个事件的概率均应属于0到1，且总和应为1.
  */
 fun gatherEventClusterEr(n:Int, vararg probabilities:Double,calculationAccuracyOfInfiniteSeries:Int?=null):BigDecimal
 {
-    if(probabilities.size!=n) throw Exception("概率数组probabilities应有n个值")
-    if(probabilities.any{it<0.0||it>1.0}||(1.0-probabilities.sum()).absoluteValue>0.0000000001) throw Exception("n个事件的概率均应属于0到1，且总和应为1")
+    if(probabilities.size!=n) throw MathIllegalException("概率数组probabilities应有n个值")
+    if(probabilities.any{it<0.0||it>1.0}||(1.0-probabilities.sum()).absoluteValue>0.0000000001) throw MathIllegalException("n个事件的概率均应属于0到1，且总和应为1")
     //若未给出计算项数，无穷级数默认计算项数为：2/事件组中最小概率.
     @Suppress("LocalVariableName")
     val CAOIS= calculationAccuracyOfInfiniteSeries ?: (2/probabilities.min()).toInt().coerceAtLeast(30)
@@ -53,8 +58,8 @@ fun gatherEventClusterEr(n:Int, vararg probabilities:Double,calculationAccuracyO
 //使用马尔科夫链的计算方式
 fun gatherEventClusterEr2(n:Int, vararg probabilities:Double):BigDecimal
 {
-    if(probabilities.size!=n) throw Exception("概率数组probabilities应有n个值")
-    if(probabilities.any{it<0.0||it>1.0}||(1.0-probabilities.sum()).absoluteValue>0.0000000001) throw Exception("n个事件的概率均应属于0到1，且总和应为1")
+    if(probabilities.size!=n) throw MathIllegalException("概率数组probabilities应有n个值")
+    if(probabilities.any{it<0.0||it>1.0}||(1.0-probabilities.sum()).absoluteValue>0.0000000001) throw MathIllegalException("n个事件的概率均应属于0到1，且总和应为1")
     var gatherEr= BigDecimal.ZERO
     for(s in 0..n-1)//s个独立变量，每个都可能是1-n
     {
@@ -65,4 +70,7 @@ fun gatherEventClusterEr2(n:Int, vararg probabilities:Double):BigDecimal
 
         }
     }
+
+
+    return BigDecimal.ZERO
 }
