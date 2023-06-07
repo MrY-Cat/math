@@ -1,5 +1,7 @@
 @file:Suppress("unUsed")
 
+package yyd.mrycat.math.test
+
 import yyd.mrycat.math.combinatorial.A
 import yyd.mrycat.math.combinatorial.C
 import yyd.mrycat.math.data.Matrix

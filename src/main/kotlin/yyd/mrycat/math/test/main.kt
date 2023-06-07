@@ -1,3 +1,5 @@
+package yyd.mrycat.math.test
+
 class Main
 {
     companion object
