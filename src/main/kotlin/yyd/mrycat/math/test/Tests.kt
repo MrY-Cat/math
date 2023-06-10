@@ -20,19 +20,11 @@ fun nowTest() = test5()
 fun test5(name:String = "Matrix.det")
 {
     println("----测试[$name]开始----")
-    val m1 = Matrix(3, 3) { _, _ -> (0..1).random() }
+    val m1 = Matrix(3, 3) { _, _ -> (0..3).random() }
     println(m1)
     println("m1.det:${m1.det()}")
-    val m2 = Matrix(3, 4, arrayOf(0, 0, 0, 1, 1, 1))
-    println(m2)
-    try
-    {
-        println("m1.det:${m2.det()}")
-    }
-    catch(e:Exception)
-    {
-        println(e.message)
-    }
+    val m2 = Matrix(3, 3, arrayOf(3, 1, 1, 1, 2, 0, 3, 1, 3))
+    println(m2.det())
     println("----测试[$name]结束----")
 }
 /*✔测试结果：符合预期*/

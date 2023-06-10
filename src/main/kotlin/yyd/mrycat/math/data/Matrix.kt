@@ -1,10 +1,10 @@
 package yyd.mrycat.math.data
 /*✔[RFC-1]*/
-import jdk.jfr.Experimental
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.exception.MathIndexOutOfBoundsException
 import java.math.BigDecimal
 import java.math.BigInteger
+import java.math.RoundingMode
 
 /**
  * 矩阵类.
@@ -115,8 +115,6 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
 
     /**
      * 计算矩阵的行列式.
-     *
-     * //目前det在某些情况下会导致计算异常
      * @throws MathIllegalException 非方阵的矩阵进行该运算时.
      */
     fun det():Double
@@ -127,11 +125,12 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         {
             for(i in j+1..row)
             {
-                if(matrix[j, j] == BigDecimal.ZERO)
+
+                if(matrix[j, j].compareTo(BigDecimal.ZERO) == 0)
                 {
                     for(r in j+1..row)
                     {
-                        if(matrix[r, j] != BigDecimal.ZERO)
+                        if(matrix[r, j].compareTo(BigDecimal.ZERO) != 0)
                         {
                             val line = matrix[j]
                             matrix[j] = matrix[r]
@@ -141,14 +140,14 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
                         else if(r == row) return 0.0
                     }
                 }
-                val newline = Array(col) { k -> (matrix[i, k+1]-matrix[i, j]/matrix[j, j]*matrix[j, k+1]) }
+                val newline = Array(col) { k -> matrix[i, k+1].subtract(matrix[i, j].divide(matrix[j, j], 500000, RoundingMode.CEILING).multiply(matrix[j, k+1])) }
                 matrix[i] = newline
             }
         }
         var result = BigDecimal.ONE
         for(s in 1..row)
         {
-            result *= matrix[s, s]
+            result = result.multiply(matrix[s, s])
         }
         return result.toDouble()
     }
