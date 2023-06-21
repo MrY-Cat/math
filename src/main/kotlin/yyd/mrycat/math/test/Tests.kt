@@ -4,7 +4,10 @@ package yyd.mrycat.math.test
 
 import yyd.mrycat.math.combinatorial.A
 import yyd.mrycat.math.combinatorial.C
+import yyd.mrycat.math.combinatorial.D
 import yyd.mrycat.math.data.Matrix
+import java.lang.Thread.sleep
+import kotlin.system.measureNanoTime
 
 /*✔测试结果：符合预期*/
 fun test(name:String = "模板测试函数")
@@ -14,8 +17,47 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = test5()
+fun nowTest() = test7()
 
+/*✔测试结果：符合预期*/
+fun test7(name:String = "矩阵转置")
+{
+    println("----测试[$name]开始----")
+    val m = Matrix(3, 3) { i, j -> i-j }
+    val m2 = Matrix(3, 4) { i, j -> i+j }
+    println(m.joinToString())
+    println(m.transpose().joinToString())
+    println(m2.joinToString())
+    println(m2.transpose().joinToString())
+    println("----测试[$name]结束----")
+}
+/*✔测试结果：见函数D()的尾部注释*/
+fun test6(name:String = "错排哪个快")
+{
+    println("----测试[$name]开始----")
+    val n = 20
+    var result:Long
+    println(D(1))
+    println(D(6))
+    println("计算D(${n}):")
+    //println("简化高精度")
+    //val time3 = measureNanoTime { for(i in 1..100)result = D3(n) }
+    //println("耗时:${time3} ns")
+    //sleep(500)
+    println("优化通项法")
+    val time2 = measureNanoTime { result = D(n) }
+    println("耗时:${time2} ns")
+    sleep(500)
+    //println("递推公式法")
+    //val time = measureNanoTime {for(i in 1..100) result = D2(n) }
+    //println("耗时:${time} ns")
+    //sleep(500)
+    //println("简化法浮点")
+    //val time4 = measureNanoTime {for(i in 1..100) result = D4(n) }
+    //println("耗时:${time4} ns")
+    //sleep(500)
+    println("----测试[$name]结束----")
+}
 /*✔测试结果：符合预期*/
 fun test5(name:String = "Matrix.det")
 {
