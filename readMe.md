@@ -43,7 +43,7 @@
 
 #### 贡献指南：
 
-1.对于大部分返回大整数的组合数学公式，n增大时结果增长可能很迅速，需实现两个同名函数（可参考[Combination](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Combination.kt)）：
+1.对于返回大整数的组合数学公式，n增大时结果增长可能很迅速，需实现两个同名函数（可参考[Combination](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Combination.kt)）：
 
 • 前者接收Long返回BigInterger，后者接收Int返回Long，二者独立实现。
 
