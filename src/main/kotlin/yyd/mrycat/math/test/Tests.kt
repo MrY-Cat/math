@@ -5,6 +5,7 @@ package yyd.mrycat.math.test
 import yyd.mrycat.math.combinatorial.A
 import yyd.mrycat.math.combinatorial.C
 import yyd.mrycat.math.combinatorial.D
+import yyd.mrycat.math.combinatorial.orderedGroupingSpeciesNumber
 import yyd.mrycat.math.data.Matrix
 import java.lang.Thread.sleep
 import java.math.BigInteger
@@ -18,8 +19,17 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = test6()
+fun nowTest() = test8()
 
+/*✔测试结果：符合预期*/
+fun test8(name:String = "有序分组公式")
+{
+    println("----测试[$name]开始----")
+    println(orderedGroupingSpeciesNumber(5,3,2))
+    println(orderedGroupingSpeciesNumber(0,0,0))
+    println(orderedGroupingSpeciesNumber(1,1,2))
+    println("----测试[$name]结束----")
+}
 /*✔测试结果：符合预期*/
 fun test7(name:String = "矩阵转置")
 {

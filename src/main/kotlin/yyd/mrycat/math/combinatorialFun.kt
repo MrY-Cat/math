@@ -62,27 +62,3 @@ fun integerPartitionOrderly(n:Int, split:Int):Matrix<Int>
     }
     return matrix
 }
-
-/**
- * 有序分组.
- *
- * 即将n个小球分为有顺序的若干组，每组为给定的数目.
- * @return 分组情况的种类数.
- * @param n 总数.
- * @param countInGroups 每一组指定的个数.
- * @exception Exception 总数n和每一组所需的个数均不能为负数.
- * @exception Exception 每一组指定的个数之和应等于总数n.
- * @author qq2278010681
- */
-fun groupingCombinationsOrderly(n:Int, vararg countInGroups:Int):BigInteger
-{
-    if(n<0||countInGroups.any{it<0}) throw  MathIllegalException("总数n和每一组所需的个数均不能为负数")
-    if(n!=countInGroups.sum()) throw  MathIllegalException("每一组所需个数之和应等于总数n")
-    //由排列组合公式知道，结果为n!/(countInGroups[0]!*countInGroups[1]!*...)
-    var bigResult= factorial(n.toLong())
-    countInGroups.forEach()
-    {
-        bigResult/= factorial(it.toLong())
-    }
-    return bigResult
-}

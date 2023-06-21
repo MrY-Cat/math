@@ -3,7 +3,7 @@ package yyd.mrycat.math.problem
 import yyd.mrycat.math.combinatorial.C
 import yyd.mrycat.math.data.Matrix
 import yyd.mrycat.math.exception.MathIllegalException
-import yyd.mrycat.math.groupingCombinationsOrderly
+import yyd.mrycat.math.combinatorial.orderedGroupingSpeciesNumber
 import yyd.mrycat.math.integerPartitionOrderly
 import java.lang.StrictMath.pow
 import java.math.BigDecimal
@@ -44,7 +44,7 @@ fun gatherEventClusterEr(n:Int, vararg probabilities:Double,calculationAccuracyO
                     val locate:Int= if(k<i) k else k-1
                     pBj*= BigDecimal.valueOf(probabilities[k-1].pow(splitMatrix[j.toInt(),locate]))
                 }
-                pBj*= groupingCombinationsOrderly(r-1,*splitMatrix[j.toInt()].toIntArray()).toBigDecimal()//有序分组种类数
+                pBj*= orderedGroupingSpeciesNumber(r-1, *splitMatrix[j.toInt()].toIntArray()).toBigDecimal()//有序分组种类数
                 pAi+=pBj
             }
             pEr+= BigDecimal.valueOf(probabilities[i-1])*pAi
