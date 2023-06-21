@@ -1,7 +1,7 @@
 @file:Suppress("unUsed", "FunctionName")
 
 package yyd.mrycat.math.util
-
+/*✔[RFC-1]*/
 import java.math.BigDecimal
 
 /**
@@ -14,3 +14,4 @@ object MathConstant
      */
     val E = BigDecimal("2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746639193200305992181741359")
 }
+/*17行[2023-06-21]*/
