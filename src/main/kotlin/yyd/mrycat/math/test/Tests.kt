@@ -7,6 +7,7 @@ import yyd.mrycat.math.combinatorial.C
 import yyd.mrycat.math.combinatorial.D
 import yyd.mrycat.math.data.Matrix
 import java.lang.Thread.sleep
+import java.math.BigInteger
 import kotlin.system.measureNanoTime
 
 /*✔测试结果：符合预期*/
@@ -17,7 +18,7 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = test7()
+fun nowTest() = test6()
 
 /*✔测试结果：符合预期*/
 fun test7(name:String = "矩阵转置")
@@ -31,21 +32,19 @@ fun test7(name:String = "矩阵转置")
     println(m2.transpose().joinToString())
     println("----测试[$name]结束----")
 }
-/*✔测试结果：见函数D()的尾部注释*/
+/*✔测试结果：见函数D(n)的尾部注释*/
 fun test6(name:String = "错排哪个快")
 {
     println("----测试[$name]开始----")
-    val n = 20
-    var result:Long
-    println(D(1))
-    println(D(6))
+    val n = 20L
+    var result:BigInteger
     println("计算D(${n}):")
     //println("简化高精度")
     //val time3 = measureNanoTime { for(i in 1..100)result = D3(n) }
     //println("耗时:${time3} ns")
     //sleep(500)
     println("优化通项法")
-    val time2 = measureNanoTime { result = D(n) }
+    val time2 = measureNanoTime { for(i in 1..100) result = D(n) }
     println("耗时:${time2} ns")
     sleep(500)
     //println("递推公式法")
