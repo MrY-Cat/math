@@ -6,7 +6,7 @@ package yyd.mrycat.math.exception
  *
  * 本数学包抛出的异常均应继承此接口.
  */
-interface MathException
+sealed interface MathException
 
 /**
  * 数学非法异常.

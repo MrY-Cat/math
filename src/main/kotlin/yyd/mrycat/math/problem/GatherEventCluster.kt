@@ -2,7 +2,6 @@ package yyd.mrycat.math.problem
 //mathProblem.kt
 import yyd.mrycat.math.combinatorial.C
 import yyd.mrycat.math.data.Matrix
-import yyd.mrycat.math.exception.MathException
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.groupingCombinationsOrderly
 import yyd.mrycat.math.integerPartitionOrderly
