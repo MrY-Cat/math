@@ -11,7 +11,9 @@
 
 5.自定义工具类：实现在[util](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util)目录下，每个类单独一个文件，例如[MathOverFlow](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathOverFlow.kt)。
 
-6.若实现到其他数学方面的公式或函数，在[主目录](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math)下新开一个子目录。
+6.测试：目前实现在[test](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/test)目录下的Tests.kt中。
+
+7.若实现到其他数学方面的公式或函数，在[主目录](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math)下新开一个子目录。
 
 ### 二.目前支持的内容：
 
