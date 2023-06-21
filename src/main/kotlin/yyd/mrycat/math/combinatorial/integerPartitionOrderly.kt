@@ -1,12 +1,7 @@
-package yyd.mrycat.math
+package yyd.mrycat.math.combinatorial
 //myMath.kt
-import yyd.mrycat.math.combinatorial.C
-import yyd.mrycat.math.combinatorial.factorial
 import yyd.mrycat.math.data.Matrix
-import yyd.mrycat.math.exception.MathException
 import yyd.mrycat.math.exception.MathIllegalException
-import java.math.BigInteger
-
 
 
 /**

@@ -4,7 +4,7 @@ import yyd.mrycat.math.combinatorial.C
 import yyd.mrycat.math.data.Matrix
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.combinatorial.orderedGroupingSpeciesNumber
-import yyd.mrycat.math.integerPartitionOrderly
+import yyd.mrycat.math.combinatorial.integerPartitionOrderly
 import java.lang.StrictMath.pow
 import java.math.BigDecimal
 import kotlin.math.absoluteValue
