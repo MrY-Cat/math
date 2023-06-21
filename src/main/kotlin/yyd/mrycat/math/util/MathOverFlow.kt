@@ -6,17 +6,19 @@ import yyd.mrycat.math.exception.MathIllegalException
 
 /**
  * 用于判断数值计算是否会溢出[Long.MAX_VALUE].
+ *
+ * 该类中的函数应完全记录什么情况会溢出，若只能通过强行运算的结果来判断，则没必要实现.
  */
 object MathOverFlow
 {
     /**
-     * 判断阶乘公式若使用此参数是否会导致Long溢出.
+     * 精确判断阶乘公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
      * @see yyd.mrycat.math.combinatorial
      */
     fun factorial(n:Int):Boolean = (n > 20)
 
     /**
-     * 判断排列数公式若使用此参数是否会导致Long溢出.
+     * 精确判断排列数公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
      * @see yyd.mrycat.math.combinatorial
      */
     fun A(n:Int, r:Int):Boolean
@@ -47,7 +49,7 @@ object MathOverFlow
     }
 
     /**
-     * 判断组合数公式若使用此参数是否会导致Long溢出.
+     * 精确判断组合数公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
      * @see yyd.mrycat.math.combinatorial
      */
     fun C(n:Int, r:Int):Boolean
@@ -90,7 +92,7 @@ object MathOverFlow
     }
 
     /**
-     * 判断错排公式若使用此参数是否会导致Long溢出.
+     * 精确判断错排公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
      * @see yyd.mrycat.math.combinatorial
      */
     fun D(n:Int):Boolean = (n > 20)

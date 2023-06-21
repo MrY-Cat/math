@@ -31,13 +31,13 @@ fun D(n:Long):BigInteger
  * 错排公式.
  * @return 正整数[n]的错排数.
  * @throws MathIllegalException 当[n]<1时.
- * @throws MathOverflowException 当计算值溢出[Long.MAX_VALUE]时
- * @suppress 当[n]>20时数值将溢出，此时请使用[D].
+ * @throws MathOverflowException 当返回值溢出[Long.MAX_VALUE]时.
+ * @suppress 当[n]>20时返回值将必定溢出，此时请使用[D].
  */
 fun D(n:Int):Long
 {
     if(n < 0) throw MathIllegalException("不支持计算非正整数的错排数")
-    if(MathOverFlow.D(n)) throw MathOverflowException("数值溢出警告:计算过程中间值将超过Long.MAX_VALUE，请使用返回BigInteger的另一计算函数")
+    if(MathOverFlow.D(n)) throw MathOverflowException("数值溢出警告:错排数D(${n})的值将超过Long.MAX_VALUE，请使用返回BigInteger的另一计算函数")
     if(n == 1) return 0
     if(n == 2) return 1
     var result = 0L

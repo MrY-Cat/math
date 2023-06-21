@@ -24,7 +24,7 @@ fun factorial(n:Long):BigInteger
  * @return 非负整数[n]的阶乘.
  * @throws MathIllegalException 当[n]为负数时.
  * @throws MathOverflowException 当返回值溢出[Long.MAX_VALUE]时
- * @suppress 当[n]>20时数值将溢出，此时请使用[factorial].
+ * @suppress 当[n]>20时返回值将必定溢出，此时请使用[factorial].
  */
 fun factorial(n:Int):Long
 {

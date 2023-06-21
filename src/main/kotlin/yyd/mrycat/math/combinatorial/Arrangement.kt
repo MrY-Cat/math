@@ -27,7 +27,7 @@ fun A(n:Long, r:Long):BigInteger
  * @return 从非负整数[n]中选[r](非负整数)个的排列数.
  * @throws MathIllegalException 当[n]或[r]为负整数时.
  * @throws MathOverflowException 当返回值溢出[Long.MAX_VALUE]时.
- * @suppress 当对每个[n]依次增加[r]时，第一个溢出的排列数分别为([n]=21,[r]=19)、([n]=22,[r]=17)...此时请使用[A].
+ * @suppress 当对每个[n]依次增加[r]时，首先溢出的排列数们为A([n]=21,[r]≥19)、A([n]=22,[r]≥17)...此时请使用[A].
  * @see MathOverFlow.A
  */
 fun A(n:Int, r:Int):Long
