@@ -97,4 +97,4 @@ object MathOverFlow
      */
     fun D(n:Int):Boolean = (n > 20)
 }
-/*98行[2023-06-21]*/
+/*100行[2023-06-21]*/
