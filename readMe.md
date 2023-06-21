@@ -39,7 +39,7 @@
 
 ### 三.欢迎贡献：
 
-欢迎贡献代码，请fork代码到自己的仓库，修改后提交Pull request 。
+欢迎贡献代码，请fork代码到自己的仓库或新建分支，修改后再提交Pull request 。
 
 #### 贡献指南：
 
@@ -53,16 +53,16 @@
 
 2.对于某些精确度要求较高的计算，应使用BigDecimal，缺少超过Double精度的数学常数时在[MathConstant](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)中添加。
 
-例如在[Derangement](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Derangement.kt)中，若采用简化公式D(n)=[n!/e+1/2]，则需使用更高精度的[MathConstant.E](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)，否则在n>18时计算将有误差。
+• 例如在[Derangement](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Derangement.kt)中，若采用简化公式D(n)=[n!/e+1/2]，则需使用更高精度的[MathConstant.E](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)，否则在n>18时计算将有误差。
 
 
 ### 四.写在最后：
 
-1.开发该项目的出发点是面向需求（x）编程学习kotlin、对数学问题进行计算验证、方便后续遇到相关数学问题时使用。
+• 开发该项目的出发点是面向需求（x）编程学习kotlin、对数学问题进行计算验证、方便后续遇到相关数学问题时使用。
 
-2.代码水平和数学水平有限，如有错误和疏漏欢迎指出。
+• 代码水平和数学水平有限，如有错误和疏漏欢迎指出。
 
-3.代码风格可能与传统的左大括号相违背，为历史遗留习惯，不喜勿喷（保命）。
+• 代码风格可能与传统的左大括号相违背，为历史遗留习惯，不喜勿喷（保命）。
 
-4.欢迎路过的大佬提交Pull request贡献代码或发布issue。
+• 欢迎路过的大佬提交Pull request贡献代码或发布issue。
 
