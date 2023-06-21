@@ -1,3 +1,5 @@
+@file:Suppress("FunctionName")
+
 package yyd.mrycat.math.util
 /*✔[RFC-1]*/
 import yyd.mrycat.math.exception.MathIllegalException
@@ -17,7 +19,6 @@ object MathOverFlow
      * 判断排列数公式若使用此参数是否会导致Long溢出.
      * @see yyd.mrycat.math.combinatorial
      */
-    @Suppress("FunctionName")
     fun A(n:Int, r:Int):Boolean
     {
         if(n < 0 || r < 0) throw MathIllegalException("暂不支持计算负整数的排列数")
@@ -49,7 +50,6 @@ object MathOverFlow
      * 判断组合数公式若使用此参数是否会导致Long溢出.
      * @see yyd.mrycat.math.combinatorial
      */
-    @Suppress("FunctionName")
     fun C(n:Int, r:Int):Boolean
     {
         if(n < 0 || r < 0) throw MathIllegalException("暂不支持计算负整数的组合数")
@@ -88,5 +88,11 @@ object MathOverFlow
             else -> throw MathIllegalException("整型参数n不可能触及此when分支")
         }
     }
+
+    /**
+     * 判断错排公式若使用此参数是否会导致Long溢出.
+     * @see yyd.mrycat.math.combinatorial
+     */
+    fun D(n:Int):Boolean = (n > 20)
 }
-/*92行[2023-06-06]*/
+/*98行[2023-06-21]*/
