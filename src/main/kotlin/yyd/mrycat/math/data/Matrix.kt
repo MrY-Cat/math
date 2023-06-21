@@ -153,6 +153,11 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
     }
 
     /**
+     * 获取转置矩阵.
+     */
+    fun transpose():Matrix<T> = Matrix(col, row) { c, r -> this[r, c] }
+
+    /**
      * 将矩阵转为字符串.
      * @see joinToString
      */
@@ -177,4 +182,4 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         return result
     }
 }
-/*178行[2023-06-06]*/
+/*185行[2023-06-21]*/
