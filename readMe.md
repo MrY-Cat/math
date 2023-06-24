@@ -15,7 +15,7 @@
 
 7.若实现到其他数学方面的公式或函数，在[主目录](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math)下新开一个子目录。
 
-### 二.目前支持的内容：
+### 二.支持的内容：
 
 #### 支持的公式：
 
@@ -43,15 +43,15 @@
 
 欢迎贡献代码，请fork代码到自己的仓库或新建分支，修改后再提交Pull request 。
 
-#### 贡献指南：
+#### 注意：
 
 1.对于返回大整数的组合数学公式，n增大时结果增长可能很迅速，需实现两个同名函数（可参考[Combination](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Combination.kt)）：
 
 • 前者接收Long返回BigInterger，后者接收Int返回Long，二者独立实现。
 
-• 在[MathOverflow](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathOverflow.kt)中实现同名函数用于自行判断是否将溢出，并在后者内部调用，若满足溢出情况抛出MathOverflowException。
-
 • 在后者的函数注释中尽可能注明将会溢出的情况，提示在此情况下应使用前者。
+
+• 若函数的返回值溢出条件可计算且函数中间值的溢出条件不先于返回值：应在[MathOverflow](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathOverflow.kt)中实现同名函数用于精确判断是否溢出，并在后者内部调用，满足溢出情况则抛出MathOverflowException。
 
 2.对于某些精确度要求较高的计算，应使用BigDecimal，缺少超过Double精度的数学常数时在[MathConstant](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)中添加。
 
@@ -64,7 +64,7 @@
 
 • 代码水平和数学水平有限，如有错误和疏漏欢迎指出。
 
-• 代码风格可能与传统的左大括号相违背，为历史遗留习惯，不喜勿喷（保命）。
+• 代码风格可能与经典的左大括号不换行相违背，为历史遗留习惯，不喜勿喷（保命）。
 
 • 欢迎路过的大佬提交Pull request贡献代码或发布issue。
 
