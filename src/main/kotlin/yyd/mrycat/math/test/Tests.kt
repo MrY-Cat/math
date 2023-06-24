@@ -56,7 +56,7 @@ fun test6(name:String = "错排哪个快")
 {
     println("----测试[$name]开始----")
     val n = 20L
-    var result:BigInteger
+    var result=BigInteger.ZERO
     println("计算D(${n}):")
     //println("简化高精度")
     //val time3 = measureNanoTime { for(i in 1..100)result = D3(n) }
@@ -74,6 +74,7 @@ fun test6(name:String = "错排哪个快")
     //val time4 = measureNanoTime {for(i in 1..100) result = D4(n) }
     //println("耗时:${time4} ns")
     //sleep(500)
+    println(result)
     println("----测试[$name]结束----")
 }
 /*✔测试结果：符合预期*/
