@@ -47,15 +47,14 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
             } as T
         }
     }
-    /**
-     * 矩阵元素总数，始终与[row]*[col]一致.
-     */
-    val size get() = row*col
 
     /**
      * 存储矩阵元素的一维数组.
      */
-    private val data = Array<Number>(size) { index -> (init((index/col)+1, (index%col)+1)) }
+    private val data = Array<Number>(row*col) { index -> (init((index/col)+1, (index%col)+1)) }
+
+    //private val data = Array<Array<Number>>(row) { r -> Array(col) { c -> init(r+1, c+1) } }
+    //private val data:Map<Int, Array<Number>> = mapOf(*Array(row) { r -> (r+1 to Array(col) { c -> init(r+1, c+1) }) })
 
     /**
      * 获取矩阵元素.
@@ -69,6 +68,8 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数超出范围")
         if(c < 1 || c > col) throw MathIndexOutOfBoundsException("访问矩阵的列数超出范围")
         return data[((r-1)*col+(c-1))] as T
+        //return data[r-1][c-1] as T
+        //return data[r]!![c-1] as T
     }
 
     /**
@@ -83,6 +84,8 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数超出范围")
         if(c < 1 || c > col) throw MathIndexOutOfBoundsException("访问矩阵的列数超出范围")
         data[((r-1)*col+(c-1))] = value
+        //data[r-1][c-1] = value
+        //data[r]!![c-1]=value
     }
 
     /**
@@ -97,6 +100,8 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数超出范围")
         val rowArray = java.lang.reflect.Array.newInstance(data[0]::class.java, col) as Array<Number>
         return data.copyInto(rowArray, 0, ((r-1)*col), (r*col)) as Array<T>
+        //val rowArray = java.lang.reflect.Array.newInstance(data[0]!![0]::class.java, col) as Array<Number>
+        //return data[0]!!.copyInto(rowArray) as Array<T>
     }
 
     /**

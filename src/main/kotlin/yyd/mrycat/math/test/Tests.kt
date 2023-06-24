@@ -19,15 +19,24 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = test8()
+fun nowTest() = test9()
 
+/*✔测试结果：符合预期，使用一维数组存储元素时会溢出*/
+fun test9(name:String = "矩阵元素数溢出")
+{
+    //46031*46031>Int.MAX_VALUE
+    println("----测试[$name]开始----")
+    val m = Matrix(22000, 22000) { _, _ -> 0 }
+    println(m[1,1])
+    println("----测试[$name]结束----")
+}
 /*✔测试结果：符合预期*/
 fun test8(name:String = "有序分组公式")
 {
     println("----测试[$name]开始----")
-    println(orderedGroupingSpeciesNumber(5,3,2))
-    println(orderedGroupingSpeciesNumber(0,0,0))
-    println(orderedGroupingSpeciesNumber(1,1,2))
+    println(orderedGroupingSpeciesNumber(5, 3, 2))
+    println(orderedGroupingSpeciesNumber(0, 0, 0))
+    println(orderedGroupingSpeciesNumber(1, 1, 2))
     println("----测试[$name]结束----")
 }
 /*✔测试结果：符合预期*/
@@ -84,7 +93,6 @@ fun test4(name:String = "Matrix行的获取与设置")
     println("----测试[$name]开始----")
     val m = Matrix(4, 5, arrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
     println(m)
-    println(m.size)
     println(m[3].joinToString())
     m[2] = arrayOf(1, 2, 3, 4, 5)
     println(m[2].joinToString())
