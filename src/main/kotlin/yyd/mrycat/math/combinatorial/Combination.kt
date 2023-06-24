@@ -32,7 +32,7 @@ fun C(n:Long, r:Long):BigInteger
  * @return 从非负整数[n]中选[r](非负整数)个的组合数.
  * @throws MathIllegalException 当n或r为负整数时.
  * @throws MathOverflowException 当返回值溢出[Long.MAX_VALUE]时.
- * @suppress 当对每个[n]依次增加[r]时，首先溢出的排列数们为C([n]=67，30≤[r]≤37)、C([n]=68，28≤[r]≤40)...此时请使用[C].
+ * @suppress 当对每个[n]依次增加[r]时，首先溢出的组合数们为C([n]=67，30≤[r]≤37)、C([n]=68，28≤[r]≤40)...此时请使用[C].
  * @see MathOverFlow.C
  */
 fun C(n:Int, r:Int):Long
