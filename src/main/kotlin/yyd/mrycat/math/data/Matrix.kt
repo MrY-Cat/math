@@ -18,6 +18,7 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
 {
     /**
      * 用于构造矩阵的伴生对象.
+     * @see Matrix
      * @see invoke
      * @see invoke
      */
@@ -49,12 +50,9 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
     }
 
     /**
-     * 存储矩阵元素的一维数组.
+     * 存储矩阵元素的二维数组.
      */
-    private val data = Array<Number>(row*col) { index -> (init((index/col)+1, (index%col)+1)) }
-
-    //private val data = Array<Array<Number>>(row) { r -> Array(col) { c -> init(r+1, c+1) } }
-    //private val data:Map<Int, Array<Number>> = mapOf(*Array(row) { r -> (r+1 to Array(col) { c -> init(r+1, c+1) }) })
+    private val data = Array<Array<Number>>(row) { r -> Array(col) { c -> init(r+1, c+1) } }
 
     /**
      * 获取矩阵元素.
@@ -65,11 +63,9 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
     @Suppress("Unchecked_cast")
     operator fun get(r:Int, c:Int):T
     {
-        if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数超出范围")
-        if(c < 1 || c > col) throw MathIndexOutOfBoundsException("访问矩阵的列数超出范围")
-        return data[((r-1)*col+(c-1))] as T
-        //return data[r-1][c-1] as T
-        //return data[r]!![c-1] as T
+        if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数${r}超出范围")
+        if(c < 1 || c > col) throw MathIndexOutOfBoundsException("访问矩阵的列数${c}超出范围")
+        return data[r-1][c-1] as T
     }
 
     /**
@@ -81,37 +77,32 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
      */
     operator fun set(r:Int, c:Int, value:T)
     {
-        if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数超出范围")
-        if(c < 1 || c > col) throw MathIndexOutOfBoundsException("访问矩阵的列数超出范围")
-        data[((r-1)*col+(c-1))] = value
-        //data[r-1][c-1] = value
-        //data[r]!![c-1]=value
+        if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数${r}超出范围")
+        if(c < 1 || c > col) throw MathIndexOutOfBoundsException("访问矩阵的列数${c}超出范围")
+        data[r-1][c-1] = value
     }
 
     /**
-     * 获取矩阵的行.
+     * 获取矩阵某行元素构成的List.
      * @param r 访问的行数(自1计).
-     * @return 该行元素组成的数组.
      * @throws MathIndexOutOfBoundsException 访问矩阵的行数超出范围时.
      */
     @Suppress("Unchecked_cast")
-    operator fun get(r:Int):Array<T>
+    operator fun get(r:Int):List<T>
     {
-        if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数超出范围")
-        val rowArray = java.lang.reflect.Array.newInstance(data[0]::class.java, col) as Array<Number>
-        return data.copyInto(rowArray, 0, ((r-1)*col), (r*col)) as Array<T>
-        //val rowArray = java.lang.reflect.Array.newInstance(data[0]!![0]::class.java, col) as Array<Number>
-        //return data[0]!!.copyInto(rowArray) as Array<T>
+        if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数${r}超出范围")
+        val rowArray = java.lang.reflect.Array.newInstance(data[0][0]::class.java, col) as Array<Number>
+        return (data[r-1].copyInto(rowArray) as Array<T>).toList()
     }
 
     /**
-     * 设置矩阵的行.
+     * 设置矩阵的某行元素.
      * @param r 设置的行数(自1计).
      * @param values 新元素行.
      * @throws MathIndexOutOfBoundsException 访问矩阵的行数超出范围时.
      * @throws MathIllegalException 新元素行的元素数目与列数不一致时.
      */
-    operator fun set(r:Int, values:Array<T>)
+    operator fun set(r:Int, values:List<T>)
     {
         if(r < 1 || r > row) throw MathIndexOutOfBoundsException("访问矩阵的行数超出范围")
         if(values.size != col) throw MathIllegalException("新元素行的元素数目与矩阵列数不一致")
@@ -145,7 +136,7 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
                         else if(r == row) return 0.0
                     }
                 }
-                val newline = Array(col) { k -> matrix[i, k+1].subtract(matrix[i, j].divide(matrix[j, j], 500000, RoundingMode.CEILING).multiply(matrix[j, k+1])) }
+                val newline = List(col) { k -> matrix[i, k+1].subtract(matrix[i, j].divide(matrix[j, j], 500000, RoundingMode.CEILING).multiply(matrix[j, k+1])) }
                 matrix[i] = newline
             }
         }

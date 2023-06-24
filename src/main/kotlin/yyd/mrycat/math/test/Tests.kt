@@ -19,15 +19,22 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = test9()
+fun nowTest() = test10()
 
+/*✔测试结果：符合预期*/
+fun test10(name:String = "矩阵并发修改")
+{
+    println("----测试[$name]开始----")
+    //CoroutineScope()
+    println("----测试[$name]结束----")
+}
 /*✔测试结果：符合预期，使用一维数组存储元素时会溢出*/
 fun test9(name:String = "矩阵元素数溢出")
 {
     //46031*46031>Int.MAX_VALUE
     println("----测试[$name]开始----")
-    val m = Matrix(22000, 22000) { _, _ -> 0 }
-    println(m[1,1])
+    val m = Matrix(10000, 10000) { i, j -> i+j }
+    println(m[10000, 10000])
     println("----测试[$name]结束----")
 }
 /*✔测试结果：符合预期*/
@@ -56,7 +63,7 @@ fun test6(name:String = "错排哪个快")
 {
     println("----测试[$name]开始----")
     val n = 20L
-    var result=BigInteger.ZERO
+    var result = BigInteger.ZERO
     println("计算D(${n}):")
     //println("简化高精度")
     //val time3 = measureNanoTime { for(i in 1..100)result = D3(n) }
@@ -95,15 +102,14 @@ fun test4(name:String = "Matrix行的获取与设置")
     val m = Matrix(4, 5, arrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
     println(m)
     println(m[3].joinToString())
-    m[2] = arrayOf(1, 2, 3, 4, 5)
+    m[2] = listOf(1, 2, 3, 4, 5)
     println(m[2].joinToString())
     m[2, 2] = -2
     println(m[2].joinToString())
+    println(m[2][2])
     try
     {
-        m[4] = arrayOf(2, 3)
-        //m[5] = arrayOf(1, 1, 1, 1)
-        //m[4, 5]+m[0, 0]
+        m[4] = listOf(2, 3)
     }
     catch(e:Exception)
     {
@@ -130,7 +136,7 @@ fun test3(name:String = "Matrix的初始化")
     println(m4.joinToString()+"\n${m4[2, 2]}")
     println(m5.joinToString()+"\n${m5[2, 2]}")
     println(m6.joinToString()+"\n${m6[2, 2]}")
-    println(m7.joinToString()+"\n${m7[2][2]}")
+    println(m7.joinToString()+"\n${m7[2, 2]}")
     println(m8.joinToString())
     println(m9.joinToString())
     println(m10.joinToString())
