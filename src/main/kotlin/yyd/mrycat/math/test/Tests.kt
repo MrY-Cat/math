@@ -9,6 +9,7 @@ import yyd.mrycat.math.combinatorial.orderedGroupingSpeciesNumber
 import yyd.mrycat.math.data.Matrix
 import java.lang.Thread.sleep
 import java.math.BigInteger
+import kotlinx.coroutines.CoroutineScope
 import kotlin.system.measureNanoTime
 
 /*✔测试结果：符合预期*/
