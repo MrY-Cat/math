@@ -27,10 +27,17 @@ suspend fun nowTest() = test11()
 fun test11(name:String = "整数拆分")
 {
     println("----测试[$name]开始----")
-    println(OrderedIntegerPartitionSpeciesNumber(10,3))
-    println(OrderedIntegerPartition(10,3))
-    println(OrderedIntegerPartitionSpeciesNumber(100,10))
-
+    println(orderedIntegerPartitionSpeciesNumber(10, 3))
+    println(orderedIntegerPartition(10, 3))
+    println(orderedIntegerPartitionSpeciesNumber(100, 10))
+    try
+    {
+        println(orderedIntegerPartition(100, 30))
+    }
+    catch(e:Exception)
+    {
+        println(e.message)
+    }
     println("----测试[$name]结束----")
 }
 /*✔测试结果：无需给Matrix中的set加@Sync，加上也无法保证多线程matrix[2,2]++时的结果，也无法保证多线程matrix[2,2]=s的结果，所以这应该是使用者在使用处所需考虑的*/

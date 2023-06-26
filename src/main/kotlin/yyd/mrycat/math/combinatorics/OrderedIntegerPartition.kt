@@ -13,9 +13,9 @@ import java.math.BigInteger
  * 即将正整数[n]拆分为[split]个考虑顺序的正整数之和，拆分情况的种类数，其其等价于调用[C] ([n]-1,[split]-1).
  * @return 拆分情况的种类数.
  * @throws MathIllegalException 当[n]<=0或[split]<=0时.
- * @see OrderedIntegerPartition
+ * @see orderedIntegerPartition
  */
-fun OrderedIntegerPartitionSpeciesNumber(n:Long, split:Long):BigInteger = C(n-1, split-1)
+fun orderedIntegerPartitionSpeciesNumber(n:Long, split:Long):BigInteger = C(n-1, split-1)
 
 /**
  * 正整数有序拆分种类数.
@@ -24,10 +24,10 @@ fun OrderedIntegerPartitionSpeciesNumber(n:Long, split:Long):BigInteger = C(n-1,
  * @return 拆分情况的种类数.
  * @throws MathIllegalException 当[n]<=0或[split]<=0时.
  * @throws MathOverflowException 当返回值溢出[Long.MAX_VALUE]时.
- * @suppress 当对每个[n]依次增加[split]时，首先溢出的情况为([n]=68,31≤[split]≤38)、([n]=69,29≤[split]≤41)...此时请使用[OrderedIntegerPartitionSpeciesNumber].
- * @see OrderedIntegerPartition
+ * @suppress 当对每个[n]依次增加[split]时，首先溢出的情况为([n]=68,31≤[split]≤38)、([n]=69,29≤[split]≤41)...此时请使用[orderedIntegerPartitionSpeciesNumber].
+ * @see orderedIntegerPartition
  */
-fun OrderedIntegerPartitionSpeciesNumber(n:Int, split:Int):Long = C(n-1, split-1)
+fun orderedIntegerPartitionSpeciesNumber(n:Int, split:Int):Long = C(n-1, split-1)
 
 /**
  * 正整数有序拆分结果矩阵.
@@ -41,11 +41,11 @@ fun OrderedIntegerPartitionSpeciesNumber(n:Int, split:Int):Long = C(n-1, split-1
  * @throws MathIllegalException 当[n]<=0或[split]<=0时.
  * @throws MathOverflowException 当矩阵行数溢出[Int.MAX_VALUE]时.
  */
-fun OrderedIntegerPartition(n:Int, split:Int):Matrix<Int>
+fun orderedIntegerPartition(n:Int, split:Int):Matrix<Int>
 {
     if(n <= 0 || split <= 0) throw MathIllegalException("被拆分数n和split均应>0")
-    val speciesNumber = OrderedIntegerPartitionSpeciesNumber(n, split)
-    if(speciesNumber > Int.MAX_VALUE) throw MathOverflowException("数值溢出警告:拆分矩阵的行数将超过Int.MAX_VALUE，暂不支持这么多行的矩阵")
+    val speciesNumber = orderedIntegerPartitionSpeciesNumber(n.toLong(), split.toLong())
+    if(speciesNumber > Int.MAX_VALUE.toBigInteger()) throw MathOverflowException("数值溢出警告:拆分矩阵的行数将超过Int.MAX_VALUE，暂不支持存储如此多行的矩阵")
     val matrix = Matrix(speciesNumber.toInt(), split) { _, _ -> 0 }
     /*拆分算法：
       首个拆分结果为[n-split+1,...,1]

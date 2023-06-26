@@ -4,7 +4,7 @@ import yyd.mrycat.math.combinatorics.C
 import yyd.mrycat.math.data.Matrix
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.combinatorics.orderedGroupingSpeciesNumber
-import yyd.mrycat.math.combinatorics.OrderedIntegerPartition
+import yyd.mrycat.math.combinatorics.orderedIntegerPartition
 import java.lang.StrictMath.pow
 import java.math.BigDecimal
 import kotlin.math.absoluteValue
@@ -31,7 +31,7 @@ fun gatherEventClusterEr(n:Int, vararg probabilities:Double,calculationAccuracyO
     for(r in n..CAOIS)
     {
         var pEr= BigDecimal.ZERO
-        val splitMatrix= OrderedIntegerPartition(r-1, n-1)//计算最内层循环所用到的拆分矩阵
+        val splitMatrix= orderedIntegerPartition(r-1, n-1)//计算最内层循环所用到的拆分矩阵
         for( i in 1..n)
         {
             var pAi= BigDecimal.ZERO
