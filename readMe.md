@@ -27,9 +27,9 @@
 
 • [错排公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Derangement.kt)
 
-• [有序分组情况数](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatoricsFun.kt)
+• [有序分组情况数](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/OrderedGrouping.kt)
 
-• [有序整数拆分结果矩阵](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatoricsFun.kt)
+• [有序整数拆分(情况数&结果矩阵)](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/OrderedIntegerPartition.kt)
 
 #### 支持的数据：
 
