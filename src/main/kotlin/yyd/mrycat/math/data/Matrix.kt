@@ -178,4 +178,4 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         return result
     }
 }
-/*185行[2023-06-21]*/
+/*181行[2023-06-26]*/
