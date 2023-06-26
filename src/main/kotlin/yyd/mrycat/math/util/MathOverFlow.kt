@@ -13,13 +13,13 @@ object MathOverFlow
 {
     /**
      * 精确判断阶乘公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
-     * @see yyd.mrycat.math.combinatorial
+     * @see yyd.mrycat.math.combinatorics
      */
     fun factorial(n:Int):Boolean = (n > 20)
 
     /**
      * 精确判断排列数公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
-     * @see yyd.mrycat.math.combinatorial
+     * @see yyd.mrycat.math.combinatorics
      */
     fun A(n:Int, r:Int):Boolean
     {
@@ -50,7 +50,7 @@ object MathOverFlow
 
     /**
      * 精确判断组合数公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
-     * @see yyd.mrycat.math.combinatorial
+     * @see yyd.mrycat.math.combinatorics
      */
     fun C(n:Int, r:Int):Boolean
     {
@@ -93,7 +93,7 @@ object MathOverFlow
 
     /**
      * 精确判断错排公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].
-     * @see yyd.mrycat.math.combinatorial
+     * @see yyd.mrycat.math.combinatorics
      */
     fun D(n:Int):Boolean = (n > 20)
 }

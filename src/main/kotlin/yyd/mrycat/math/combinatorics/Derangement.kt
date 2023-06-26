@@ -1,6 +1,6 @@
 @file:Suppress("unUsed", "FunctionName")
 
-package yyd.mrycat.math.combinatorial
+package yyd.mrycat.math.combinatorics
 /*✔[RFC-1]*/
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.exception.MathOverflowException

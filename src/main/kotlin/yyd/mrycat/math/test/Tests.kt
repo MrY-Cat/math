@@ -7,7 +7,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withContext
-import yyd.mrycat.math.combinatorial.*
+import yyd.mrycat.math.combinatorics.*
 import yyd.mrycat.math.data.Matrix
 import java.lang.Thread.sleep
 import java.math.BigInteger

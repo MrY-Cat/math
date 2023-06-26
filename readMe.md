@@ -1,7 +1,7 @@
 # my.math
 ## 基于kotlin的一个简单数学函数包
 ### 一.目录结构：
-1.组合数学公式：实现在[combinatorial](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial)目录下，每个公式单独一个文件，例如[Factorial](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Factorial.kt)。
+1.组合数学公式：实现在[combinatorics](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics)目录下，每个公式单独一个文件，例如[Factorial](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Factorial.kt)。
 
 2.自定义数据类：实现在[data](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/data)目录下，每个类单独一个文件，例如[Matrix](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/data/Matrix.kt)。
 
@@ -19,17 +19,17 @@
 
 #### 支持的公式：
 
-• [阶乘公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Factorial.kt)
+• [阶乘公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Factorial.kt)
 
-• [排列数公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Arrangement.kt)
+• [排列数公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Arrangement.kt)
 
-• [组合数公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Combination.kt)
+• [组合数公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Combination.kt)
 
-• [错排公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Derangement.kt)
+• [错排公式](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Derangement.kt)
 
-• [有序分组情况数](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorialFun.kt)
+• [有序分组情况数](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatoricsFun.kt)
 
-• [有序整数拆分结果矩阵](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorialFun.kt)
+• [有序整数拆分结果矩阵](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatoricsFun.kt)
 
 #### 支持的数据：
 
@@ -45,7 +45,7 @@
 
 #### 注意：
 
-1.对于返回大整数的组合数学公式，n增大时结果增长可能很迅速，需实现两个同名函数（可参考[Combination](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Combination.kt)）：
+1.对于返回大整数的组合数学公式，n增大时结果增长可能很迅速，需实现两个同名函数（可参考[Combination](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Combination.kt)）：
 
 • 前者接收Long返回BigInterger，后者接收Int返回Long，二者独立实现。
 
@@ -55,7 +55,7 @@
 
 2.对于某些精确度要求较高的计算，应使用BigDecimal，缺少超过Double精度的数学常数时在[MathConstant](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)中添加。
 
-• 例如在[Derangement](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorial/Derangement.kt)中，若采用简化公式D(n)=[n!/e+1/2]，则需使用更高精度的[MathConstant.E](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)，否则在n>18时计算将有误差。
+• 例如在[Derangement](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/combinatorics/Derangement.kt)中，若采用简化公式D(n)=[n!/e+1/2]，则需使用更高精度的[MathConstant.E](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)，否则在n>18时计算将有误差。
 
 
 ### 四.写在最后：
