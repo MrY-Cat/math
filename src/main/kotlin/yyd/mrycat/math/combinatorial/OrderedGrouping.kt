@@ -13,7 +13,7 @@ import java.math.BigInteger
  *
  * @return 分组情况的种类数.
  * @param eachGroupCount 每一组指定的个数.
- * @exception MathIllegalException 当某一组指定的个数为负数时.
+ * @throws MathIllegalException 当某一组指定的个数为负数时.
  *
  */
 fun orderedGroupingSpeciesNumber(vararg eachGroupCount:Long):BigInteger
@@ -35,7 +35,7 @@ fun orderedGroupingSpeciesNumber(vararg eachGroupCount:Long):BigInteger
  *
  * @return 分组情况的种类数.
  * @param eachGroupCount 每一组指定的个数.
- * @exception MathIllegalException 当某一组指定的个数为负数时.
+ * @throws MathIllegalException 当某一组指定的个数为负数时.
  * @throws MathOverflowException 当计算中间值溢出[Long.MAX_VALUE]时.
  * @suppress 当N>20时，计算中间值N!将必定溢出，此时请使用[orderedGroupingSpeciesNumber].
  */
