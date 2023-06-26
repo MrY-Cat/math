@@ -64,7 +64,7 @@
 
 • 代码水平和数学水平有限，如有错误和疏漏欢迎指出。
 
-• [代码风格](https://github.com/MrY-Cat/math/tree/main/kotlinCodeStyle.xml)可能与经典的左大括号不换行相违背，为历史遗留习惯，不喜勿喷（保命）。
+• [代码风格](https://github.com/MrY-Cat/math/tree/main/kotlinCodeStyle.xml)可能与经典的左大括号不换行相违背，为个人遗留习惯，不喜勿喷（dog）。
 
 • 欢迎路过的大佬提交Pull request贡献代码或发布issue。
 
