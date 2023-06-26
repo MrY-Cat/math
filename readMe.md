@@ -37,7 +37,7 @@
 
 #### 支持的问题：
 
-• [集齐完备事件组期望次数问题](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/data/Matrix.kt)（加权完全图的随机游走覆盖时间？）
+• [集齐完备事件组期望次数问题](https://github.com/MrY-Cat/math/tree/main/src/main/kotlin/yyd/mrycat/math/problem/GatherEventCluster.kt)（加权完全图的随机游走覆盖时间？）
 
 ### 三.欢迎贡献：
 
