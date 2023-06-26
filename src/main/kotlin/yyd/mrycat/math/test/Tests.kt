@@ -7,10 +7,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withContext
-import yyd.mrycat.math.combinatorial.A
-import yyd.mrycat.math.combinatorial.C
-import yyd.mrycat.math.combinatorial.D
-import yyd.mrycat.math.combinatorial.orderedGroupingSpeciesNumber
+import yyd.mrycat.math.combinatorial.*
 import yyd.mrycat.math.data.Matrix
 import java.lang.Thread.sleep
 import java.math.BigInteger
@@ -24,8 +21,18 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-suspend fun nowTest() = test10()
+suspend fun nowTest() = test11()
 
+/*✔测试结果：符合预期*/
+fun test11(name:String = "整数拆分")
+{
+    println("----测试[$name]开始----")
+    println(OrderedIntegerPartitionSpeciesNumber(10,3))
+    println(OrderedIntegerPartition(10,3))
+    println(OrderedIntegerPartitionSpeciesNumber(100,10))
+
+    println("----测试[$name]结束----")
+}
 /*✔测试结果：无需给Matrix中的set加@Sync，加上也无法保证多线程matrix[2,2]++时的结果，也无法保证多线程matrix[2,2]=s的结果，所以这应该是使用者在使用处所需考虑的*/
 suspend fun test10(name:String = "矩阵并发修改")
 {
