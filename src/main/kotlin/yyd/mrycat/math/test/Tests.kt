@@ -2,6 +2,11 @@
 
 package yyd.mrycat.math.test
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.withContext
 import yyd.mrycat.math.combinatorial.A
 import yyd.mrycat.math.combinatorial.C
 import yyd.mrycat.math.combinatorial.D
@@ -9,7 +14,6 @@ import yyd.mrycat.math.combinatorial.orderedGroupingSpeciesNumber
 import yyd.mrycat.math.data.Matrix
 import java.lang.Thread.sleep
 import java.math.BigInteger
-import kotlinx.coroutines.CoroutineScope
 import kotlin.system.measureNanoTime
 
 /*✔测试结果：符合预期*/
@@ -20,13 +24,32 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = test10()
+suspend fun nowTest() = test10()
 
-/*✔测试结果：符合预期*/
-fun test10(name:String = "矩阵并发修改")
+/*✔测试结果：无需给Matrix中的set加@Sync，加上也无法保证多线程matrix[2,2]++时的结果，也无法保证多线程matrix[2,2]=s的结果，所以这应该是使用者在使用处所需考虑的*/
+suspend fun test10(name:String = "矩阵并发修改")
 {
     println("----测试[$name]开始----")
-    //CoroutineScope()
+    val matrix = Matrix(3, 3) { _, _ -> 0 }
+    val lock = Mutex()
+    //var a = 0
+    withContext(Dispatchers.Default)
+    {
+        repeat(100)
+        { s ->
+            launch()
+            {
+                repeat(1000)
+                {
+                    //lock.withLock { a++ }
+                    matrix[2, 2] = s
+                }
+            }
+        }
+    }
+    delay(10000)
+    println(matrix)
+    //println("a:$a")
     println("----测试[$name]结束----")
 }
 /*✔测试结果：符合预期，使用一维数组存储元素时会溢出*/

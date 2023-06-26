@@ -1,5 +1,7 @@
 package yyd.mrycat.math.test
 
+import kotlinx.coroutines.runBlocking
+
 class Main
 {
     companion object
@@ -7,7 +9,7 @@ class Main
         @JvmStatic
         fun main(args:Array<String>)
         {
-            nowTest()
+            runBlocking { nowTest() }
             //val eventTotal=12//事件总数
             //val eachProbability:Array<Double> = arrayOf(1.0/6,1.0/6,1.0/6,1.0/6,1.0/6,1.0/6)//骰子70项结果：14.69869299
             //val eachProbability:Array<Double> = arrayOf(1.0/6,2.0/6,3.0/6)//奇怪硬币500-1000项：7.2999999999999979678213
