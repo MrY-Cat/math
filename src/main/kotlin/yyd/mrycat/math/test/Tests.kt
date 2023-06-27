@@ -1,4 +1,4 @@
-@file:Suppress("unUsed")
+@file:Suppress("UNUSED", "UNUSED_VARIABLE", "LocalVariableName", "REDUNDANT_SUSPEND_MODIFY")
 
 package yyd.mrycat.math.test
 
@@ -9,6 +9,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withContext
 import yyd.mrycat.math.combinatorics.*
 import yyd.mrycat.math.data.Matrix
+import yyd.mrycat.math.problem.gatherEventClusterEr
 import java.lang.Thread.sleep
 import java.math.BigInteger
 import kotlin.system.measureNanoTime
@@ -21,8 +22,30 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-suspend fun nowTest() = test11()
+suspend fun nowTest() = test13()
 
+/*✔测试结果：符合预期*/
+fun test13(name:String = "集齐完备事件组期望次数公式")
+{
+    println("----测试[$name]开始----")
+    //val eachProbability:Array<Double> = arrayOf(1.0/6, 1.0/6, 1.0/6, 1.0/6, 1.0/6, 1.0/6)//骰子70项结果：14.69869299
+    //val eachProbability:Array<Double> = arrayOf(1.0/6, 2.0/6, 3.0/6)//奇怪硬币1000项：7.2999999999999969
+    val eachProbability:Array<Double> = arrayOf(1.0/2,1.0/2)//两面硬币1000项：2.9999999999999999999999
+    val E = gatherEventClusterEr(*eachProbability.toDoubleArray(), InfiniteSeriesCalculationAccuracy = 1000)
+    println(E)
+    println("----测试[$name]结束----")
+}
+/*✔测试结果：会有误差，所以不能用!=1.0判断*/
+fun test12(name:String = "分数Double存储的精度损失")
+{
+    println("----测试[$name]开始----")
+    println(1/3.0)
+    println(1/6.0)
+    val a = (1/6.0)+(1/6.0)+(1/6.0)+(1/6.0)+(1/6.0)+(1/6.0)
+    println((1/3.0)+(1/6.0))
+    println(a)
+    println("----测试[$name]结束----")
+}
 /*✔测试结果：符合预期*/
 fun test11(name:String = "整数拆分")
 {
