@@ -110,6 +110,31 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
     }
 
     /**
+     * 转换矩阵元素类型为[S].
+     *
+     * 每个元素分别转换为[S]类型，大类型转小类型时可能带来的精度损失与[T].to[S]一致.
+     */
+    inline fun <reified S:Number> toMatrix():Matrix<S>
+    {
+        val matrix = Matrix(row, col)
+        { r, c ->
+            when(S::class.java)
+            {
+                BigDecimal::class.java -> BigDecimal(this[r, c].toString())
+                BigInteger::class.java -> BigInteger(this[r, c].toString())
+                java.lang.Double::class.java -> this[r, c].toDouble()
+                java.lang.Float::class.java -> this[r, c].toFloat()
+                java.lang.Long::class.java -> this[r, c].toLong()
+                java.lang.Integer::class.java -> this[r, c].toInt()
+                java.lang.Short::class.java -> this[r, c].toShort()
+                java.lang.Byte::class.java -> this[r, c].toByte()
+                else -> throw MathIllegalException("不支持的矩阵元素类型")
+            } as S
+        }
+        return matrix
+    }
+
+    /**
      * 计算矩阵的行列式.
      * @throws MathIllegalException 非方阵的矩阵进行该运算时.
      */
@@ -178,4 +203,4 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         return result
     }
 }
-/*181行[2023-06-26]*/
+/*206行[2023-06-27]*/
