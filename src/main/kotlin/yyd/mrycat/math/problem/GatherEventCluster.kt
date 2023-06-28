@@ -17,11 +17,11 @@ import kotlin.math.absoluteValue
  *
  * 若要查看该算法公式，请访问[<a href="https://github.com/MrY-Cat/math/tree/master/image/gatherEventClusterEX.jpg">公式</a>].
  * @param probabilities 每个事件的概率(顺序不影响结果).
- * @param InfiniteSeriesCalculationAccuracy 当存在某个概率≠1/N时，算法中无穷级数计算的项数，不指定时默认为10/[probabilities].[min]，注意：项数过少可能导致结果与解析解有较大误差.
+ * @param InfiniteSeriesCalculationAccuracy 当存在某个概率≠1/N时，算法中无穷级数计算的项数，不指定时默认为(10/[probabilities].[min]).[coerceAtLeast] (100)，注意：项数过少可能导致结果与解析解有较大误差.
  * @throws MathIllegalException 当某个概率不属于0..1或概率总和不属于(1-1E-15)..(1+1E-15)时.
  * @see gatherEventClusterEY
  */
-fun gatherEventClusterEX(vararg probabilities:Double, InfiniteSeriesCalculationAccuracy:Int = (10/probabilities.min()).toInt()):BigDecimal
+fun gatherEventClusterEX(vararg probabilities:Double, InfiniteSeriesCalculationAccuracy:Int = (10/probabilities.min()).toInt().coerceAtLeast(100)):BigDecimal
 {
     if(probabilities.any { it < 0.0 || it > 1.0 }) throw MathIllegalException("n个事件的概率均应属于0到1")
     if((1.0-probabilities.sum()).absoluteValue > MathConstant.DoublePlusErrorAccuracy) throw MathIllegalException("n个事件的概率总和应为1.0")
@@ -77,7 +77,7 @@ fun gatherEventClusterEY(vararg probabilities:Double):BigDecimal
     var result = BigDecimal.ZERO
 
 
-    for(s in 0..n-1)//s个独立变量，每个都可能是1-n
+    for(s in 0 until n)//s个独立变量，每个都可能是1-n
     {
         val matrix = Matrix(pow(n.toDouble(), s.toDouble()).toInt(), s) { _, _ -> 0 }
 
