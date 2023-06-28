@@ -21,7 +21,7 @@ import kotlin.math.absoluteValue
 fun gatherEventClusterEX(vararg probabilities:Double, InfiniteSeriesCalculationAccuracy:Int = (10/probabilities.min()).toInt()):BigDecimal
 {
     if(probabilities.any { it < 0.0 || it > 1.0 }) throw MathIllegalException("n个事件的概率均应属于0到1")
-    if((1.0-probabilities.sum()).absoluteValue > MathConstant.DoublePlusAccuracyError) throw MathIllegalException("n个事件的概率总和应为1.0")
+    if((1.0-probabilities.sum()).absoluteValue > MathConstant.DoublePlusErrorAccuracy) throw MathIllegalException("n个事件的概率总和应为1.0")
     val n = probabilities.size
     var result = BigDecimal.ZERO
     if(!probabilities.any { it != probabilities[0] })
@@ -62,7 +62,7 @@ fun gatherEventClusterEX(vararg probabilities:Double, InfiniteSeriesCalculationA
 fun gatherEventClusterEr2(vararg probabilities:Double):BigDecimal
 {
     val n = probabilities.size
-    if(probabilities.any { it < 0.0 || it > 1.0 } || (1.0-probabilities.sum()).absoluteValue > MathConstant.DoublePlusAccuracyError) throw MathIllegalException("n个事件的概率均应属于0到1，且总和应为1")
+    if(probabilities.any { it < 0.0 || it > 1.0 } || (1.0-probabilities.sum()).absoluteValue > MathConstant.DoublePlusErrorAccuracy) throw MathIllegalException("n个事件的概率均应属于0到1，且总和应为1")
     var result = BigDecimal.ZERO
     for(s in 0..n-1)//s个独立变量，每个都可能是1-n
     {

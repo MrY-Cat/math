@@ -24,6 +24,6 @@ object MathConstant
      *
      * 例如，判断1.0/3+1.0/3+1.0/3是否是1时，需要看与1的误差是否大于本数更稳妥.
      */
-    const val DoublePlusAccuracyError = 0.000000000000001
+    const val DoublePlusErrorAccuracy = 0.000000000000001
 }
-/*22行[2023-06-21]*/
+/*29行[2023-06-21]*/
