@@ -2,7 +2,7 @@ package yyd.mrycat.math.combinatorics
 /*✔[RFC-1]*/
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.exception.MathOverflowException
-import yyd.mrycat.math.util.MathOverFlow
+import yyd.mrycat.math.util.MathOverflow
 import java.math.BigInteger
 
 /**
@@ -29,7 +29,7 @@ fun factorial(n:Long):BigInteger
 fun factorial(n:Int):Long
 {
     if(n < 0) throw MathIllegalException("不支持计算负整数的阶乘")
-    if(MathOverFlow.factorial(n)) throw MathOverflowException("数值溢出警告:阶乘${n}!将超过Long.MAX_VALUE，请使用返回BigInteger的另一计算函数")
+    if(MathOverflow.factorial(n)) throw MathOverflowException("数值溢出警告:阶乘${n}!将超过Long.MAX_VALUE，请使用返回BigInteger的另一计算函数")
     if(n in 0..1) return 1L
     var result = 1L
     for(i in 2L..n.toLong()) result *= i

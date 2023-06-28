@@ -9,7 +9,7 @@ import yyd.mrycat.math.exception.MathIllegalException
  *
  * 该类中的函数应完全记录什么情况会溢出，若只能通过强行运算的结果来判断，则没必要实现.
  */
-object MathOverFlow
+object MathOverflow
 {
     /**
      * 精确判断阶乘公式若使用此参数，<返回值>是否会溢出[Long.MAX_VALUE].

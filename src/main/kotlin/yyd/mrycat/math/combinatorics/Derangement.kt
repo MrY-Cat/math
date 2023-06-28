@@ -4,7 +4,7 @@ package yyd.mrycat.math.combinatorics
 /*✔[RFC-1]*/
 import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.exception.MathOverflowException
-import yyd.mrycat.math.util.MathOverFlow
+import yyd.mrycat.math.util.MathOverflow
 import java.math.BigInteger
 
 /**
@@ -37,7 +37,7 @@ fun D(n:Long):BigInteger
 fun D(n:Int):Long
 {
     if(n < 0) throw MathIllegalException("不支持计算非正整数的错排数")
-    if(MathOverFlow.D(n)) throw MathOverflowException("数值溢出警告:错排数D(${n})的值将超过Long.MAX_VALUE，请使用返回BigInteger的另一计算函数")
+    if(MathOverflow.D(n)) throw MathOverflowException("数值溢出警告:错排数D(${n})的值将超过Long.MAX_VALUE，请使用返回BigInteger的另一计算函数")
     if(n == 1) return 0
     if(n == 2) return 1
     var result = 0L
