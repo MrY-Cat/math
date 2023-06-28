@@ -9,11 +9,13 @@
 
 4.自定义异常类：实现在[exception](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/exception)目录下，要求该包代码中人为主动抛出的所有异常均应继承自接口[MathException](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/exception/MathException.kt)。
 
-5.自定义工具类：实现在[util](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/util)目录下，每个类单独一个文件，例如[MathOverFlow](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/util/MathOverFlow.kt)。
+5.自定义工具类：实现在[util](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/util)目录下，每个类单独一个文件，例如[MathOverflow](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/util/MathOverflow.kt)。
 
-6.测试：目前实现在[test](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/test)目录下的Tests.kt中。
+6.图片资源：存放在[image](https://github.com/MrY-Cat/math/tree/master/image)目录下，用于保存注释中URL所链接的图片。
 
-7.若实现到其他数学方面的公式或函数，在[主目录](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math)下新开一个子目录。
+7.测试：目前实现在[test](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/test)目录下的Tests.kt中。
+
+8.若实现到其他数学方面的公式或函数，在[主目录](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math)下新开一个子目录。
 
 ### 二.支持的内容：
 
@@ -47,7 +49,7 @@
 
 1.对于返回大整数的组合数学公式，n增大时结果增长可能很迅速，需实现两个同名函数（可参考[Combination](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Combination.kt)）：
 
-• 前者接收Long返回BigInterger，后者接收Int返回Long，二者独立实现。
+• 前者接收Long返回BigInteger，后者接收Int返回Long，二者独立实现。
 
 • 在后者的函数注释中尽可能注明将会溢出的情况，提示在此情况下应使用前者。
 
