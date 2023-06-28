@@ -1,6 +1,5 @@
 package yyd.mrycat.math.test
 /*✔[RFC-1]*/
-import kotlinx.coroutines.runBlocking
 
 class Main
 {
@@ -9,7 +8,7 @@ class Main
         @JvmStatic
         fun main(args:Array<String>)
         {
-            runBlocking { nowTest() }
+            nowTest()
         }
     }
 }

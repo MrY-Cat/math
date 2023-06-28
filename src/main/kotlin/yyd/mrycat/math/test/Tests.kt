@@ -2,11 +2,8 @@
 
 package yyd.mrycat.math.test
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.withContext
 import yyd.mrycat.math.combinatorics.*
 import yyd.mrycat.math.data.Matrix
 import yyd.mrycat.math.problem.gatherEventClusterEX
@@ -22,7 +19,7 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-suspend fun nowTest() = test13()
+fun nowTest() = runBlocking { test10() }
 
 /*✔测试结果：符合预期*/
 fun test13(name:String = "集齐完备事件组期望次数公式")
