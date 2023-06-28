@@ -15,7 +15,7 @@ import kotlin.math.absoluteValue
  *
  * 该算法采用基于期望公式和拆分矩阵的方法，计算对N（无需给出，即[probabilities]中元素数）个事件构成的完备事件组，使每个事件都恰好至少发生一次所需的总试验次数X的期望E(X).
  *
- * 若要查看该算法的公式，请访问[公式][https://github.com/MrY-Cat/math/tree/main/image/gatherEventClusterEX.jpg].
+ * 若要查看该算法的公式，请访问[<a href="https://github.com/MrY-Cat/math/tree/main/image/gatherEventClusterEX.jpg">公式</a>].
  * @param probabilities 每个事件的概率(顺序不影响结果).
  * @param InfiniteSeriesCalculationAccuracy 当存在某个概率≠1/N时，算法中无穷级数计算的项数，不指定时默认为10/[probabilities].[min]，注意：项数过少可能导致结果与解析解有较大误差.
  * @throws MathIllegalException 当某个概率不属于0..1或概率总和不属于(1-1E-15)..(1+1E-15)时.
