@@ -9,7 +9,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withContext
 import yyd.mrycat.math.combinatorics.*
 import yyd.mrycat.math.data.Matrix
-import yyd.mrycat.math.problem.gatherEventClusterEr
+import yyd.mrycat.math.problem.gatherEventClusterEX
 import java.lang.Thread.sleep
 import java.math.BigInteger
 import kotlin.system.measureNanoTime
@@ -28,11 +28,15 @@ suspend fun nowTest() = test13()
 fun test13(name:String = "集齐完备事件组期望次数公式")
 {
     println("----测试[$name]开始----")
-    //val eachProbability:Array<Double> = arrayOf(1.0/6, 1.0/6, 1.0/6, 1.0/6, 1.0/6, 1.0/6)//骰子70项结果：14.69869299
-    //val eachProbability:Array<Double> = arrayOf(1.0/6, 2.0/6, 3.0/6)//奇怪硬币1000项：7.2999999999999969
-    val eachProbability:Array<Double> = arrayOf(1.0/2,1.0/2)//两面硬币1000项：2.9999999999999999999999
-    val E = gatherEventClusterEr(*eachProbability.toDoubleArray(), InfiniteSeriesCalculationAccuracy = 1000)
-    println(E)
+    //val eachProbability = arrayOf(1.0/6, 2.0/6, 3.0/6).toDoubleArray()//奇怪硬币120项：7.299999999999
+    val eachProbability = arrayOf(1.0/6, 2.0/6, 1.5/6, 1.5/6).toDoubleArray()//200项：9.138095238095 20370556721545983668206373551881296040697817312956035569809378426271391825506183566451985868
+    val EX = gatherEventClusterEX(*eachProbability, InfiniteSeriesCalculationAccuracy = 300)
+    println(EX)
+    for(n in 2..50)
+    {
+        val En = gatherEventClusterEX(*Array(n) { 1.0/n }.toDoubleArray())
+        println("${n}个均等概率事件时:E=$En")
+    }
     println("----测试[$name]结束----")
 }
 /*✔测试结果：会有误差，所以不能用!=1.0判断*/

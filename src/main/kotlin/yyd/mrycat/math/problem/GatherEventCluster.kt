@@ -7,22 +7,31 @@ import yyd.mrycat.math.exception.MathIllegalException
 import yyd.mrycat.math.util.MathConstant
 import java.lang.StrictMath.pow
 import java.math.BigDecimal
+import java.math.RoundingMode
 import kotlin.math.absoluteValue
 
 /**
  * 集齐完备事件组期望次数.
  *
- * 即计算对N（无需给出，即[probabilities]中元素数）个事件构成的完备事件组，使每个事件都恰好至少发生一次所需的总试验次数r的期望E(r).
+ * 即计算对N（无需给出，即[probabilities]中元素数）个事件构成的完备事件组，使每个事件都恰好至少发生一次所需的总试验次数X的期望E(X).
  * @param probabilities 每个事件的概率(顺序不影响结果).
- * @param InfiniteSeriesCalculationAccuracy 算法中无穷级数计算的项数，不指定时默认为10/[probabilities].[min]，注意：项数过少可能导致结果与解析解有较大误差.
- * @exception MathIllegalException 某个概率不属于0..1或概率总和不属于(1-1E-15)..(1+1E-15)时.
+ * @param InfiniteSeriesCalculationAccuracy 当存在某个概率≠1/N时，算法中无穷级数计算的项数，不指定时默认为10/[probabilities].[min]，注意：项数过少可能导致结果与解析解有较大误差.
+ * @exception MathIllegalException 当某个概率不属于0..1或概率总和不属于(1-1E-15)..(1+1E-15)时.
  */
-fun gatherEventClusterEr(vararg probabilities:Double, InfiniteSeriesCalculationAccuracy:Int = (2/probabilities.min()).toInt()):BigDecimal
+fun gatherEventClusterEX(vararg probabilities:Double, InfiniteSeriesCalculationAccuracy:Int = (10/probabilities.min()).toInt()):BigDecimal
 {
     if(probabilities.any { it < 0.0 || it > 1.0 }) throw MathIllegalException("n个事件的概率均应属于0到1")
     if((1.0-probabilities.sum()).absoluteValue > MathConstant.DoublePlusAccuracyError) throw MathIllegalException("n个事件的概率总和应为1.0")
     val n = probabilities.size
     var result = BigDecimal.ZERO
+    if(!probabilities.any { it != probabilities[0] })
+    {//等概率情况下
+        for(i in 1..n)
+        {
+            result += n.toBigDecimal().divide(i.toBigDecimal(), 256, RoundingMode.HALF_UP)
+        }
+        return result
+    }
     for(r in n..InfiniteSeriesCalculationAccuracy)
     {
         var pEr = BigDecimal.ZERO
