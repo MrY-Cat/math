@@ -32,14 +32,15 @@ fun orderedIntegerPartitionSpeciesNumber(n:Int, split:Int):Long = C(n-1, split-1
 /**
  * 正整数有序拆分结果矩阵.
  *
- * 拆分算法为迭代法，按照遍历规则，根据一种结果迭代下一种。第一种拆分结果为：首个元素是[n]-[split]+1，其余[split]-1个元素是1.
+ * 拆分算法为迭代法，按照生成规则，根据一种结果迭代下一种。第一种拆分结果为：首个元素是[n]-[split]+1，其余[split]-1个元素是1.
  *
- * 遍历规则：根据当前拆分结果，按照"从右往左除末尾元素外首个非1元素将1分给其右侧元素nₖ，同时b右侧的所有元素将自身仅保留1余下的数还给nₖ"得到下一种结果.
+ * 生成规则：根据当前拆分结果，按照"从右往左除末尾元素外首个非1元素将1分给其右侧元素nₖ，同时b右侧的所有元素将自身仅保留1余下的数还给nₖ"得到下一种结果.
  * @param n 被拆分的正整数.
  * @param split 拆分个数.
  * @return 正整数[n]有序拆分为[split]个正整数之和的拆分结果矩阵，该矩阵共有[C] ([n]-1,[split]-1)行，[split]列，每行存储一种有序拆分结果.
  * @throws MathIllegalException 当[n]<=0或[split]<=0时.
  * @throws MathOverflowException 当矩阵行数溢出[Int.MAX_VALUE]时.
+ * @see orderedIntegerPartitionSpeciesNumber
  */
 fun orderedIntegerPartition(n:Int, split:Int):Matrix<Int>
 {
@@ -47,7 +48,7 @@ fun orderedIntegerPartition(n:Int, split:Int):Matrix<Int>
     val speciesNumber = orderedIntegerPartitionSpeciesNumber(n.toLong(), split.toLong())
     if(speciesNumber > Int.MAX_VALUE.toBigInteger()) throw MathOverflowException("数值溢出警告:拆分矩阵的行数将超过Int.MAX_VALUE，暂不支持存储如此多行的矩阵")
     val matrix = Matrix(speciesNumber.toInt(), split) { _, _ -> 0 }
-    /*拆分算法：
+    /*生成规则：
       首个拆分结果为[n-split+1,...,1]
       根据前一个拆分结果，按照规则"从右往左除末尾元素外首个非1元素a将1分给其右侧元素nₖ，同时b右侧的所有元素将自身仅保留1余下的数还给nₖ"得到下一个拆分结果
     */
@@ -80,4 +81,4 @@ fun orderedIntegerPartition(n:Int, split:Int):Matrix<Int>
     }
     return matrix
 }
-/*83行[2023-06-26]*/
+/*84行[2023-06-26]*/
