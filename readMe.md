@@ -25,7 +25,7 @@
 
 • [排列数公式](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Arrangement.kt)
 
-• [组合数公式](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Combination.kt)
+• [组合数公式&组合生成](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Combination.kt)
 
 • [错排公式](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Derangement.kt)
 

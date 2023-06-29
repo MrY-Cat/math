@@ -50,7 +50,7 @@ fun orderedIntegerPartition(n:Int, split:Int):Matrix<Int>
     val matrix = Matrix(speciesNumber.toInt(), split) { _, _ -> 0 }
     /*生成规则：
       首个拆分结果为[n-split+1,...,1]
-      根据前一个拆分结果，按照规则"从右往左除末尾元素外首个非1元素a将1分给其右侧元素nₖ，同时b右侧的所有元素将自身仅保留1余下的数还给nₖ"得到下一个拆分结果
+      根据前一个拆分结果，按照"从右往左除末尾元素外首个非1元素a将1分给其右侧元素nₖ，同时b右侧的所有元素将自身仅保留1余下的数还给nₖ"得到下一个拆分结果
     */
     matrix[1] = List(matrix.col) { index -> if(index == 0) n-split+1 else 1 }//初始化首行拆分结果
     for(r in 1 until matrix.row)

@@ -19,8 +19,15 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = runBlocking { test13() }
+fun nowTest() = runBlocking { test14() }
 
+/*✔测试结果：符合预期*/
+fun test14(name:String = "组合生成函数")
+{
+    println("----测试[$name]开始----")
+    println(combination(7, 3))
+    println("----测试[$name]结束----")
+}
 /*✔测试结果：符合预期*/
 fun test13(name:String = "集齐完备事件组期望次数公式")
 {
