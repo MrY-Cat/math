@@ -138,8 +138,11 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
     /**
      * 计算矩阵的行列式.
      * @throws MathIllegalException 非方阵的矩阵进行该运算时.
+     * @return 行列式结果，精度为[BigDecimal].
+     * @see det
      */
-    fun det():Double
+    @Suppress("FunctionName")
+    private fun Det():BigDecimal
     {
         if(this.row != this.col) throw MathIllegalException("不支持非方阵的矩阵进行行列式运算")
         val matrix = Matrix(row, col) { r, c -> BigDecimal.valueOf(this[r, c].toDouble()) }
@@ -159,10 +162,10 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
                             matrix[r] = line
                             break
                         }
-                        else if(r == row) return 0.0
+                        else if(r == row) return BigDecimal.ZERO
                     }
                 }
-                val newline = List(col) { k -> matrix[i, k+1].subtract(matrix[i, j].divide(matrix[j, j], 500000, RoundingMode.CEILING).multiply(matrix[j, k+1])) }
+                val newline = List(col) { k -> matrix[i, k+1].subtract(matrix[i, j].divide(matrix[j, j], 3000, RoundingMode.CEILING).multiply(matrix[j, k+1])) }
                 matrix[i] = newline
             }
         }
@@ -171,8 +174,16 @@ class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> 
         {
             result = result.multiply(matrix[s, s])
         }
-        return result.toDouble()
+        return result
     }
+
+    /**
+     * 计算矩阵的行列式.
+     * @throws MathIllegalException 非方阵的矩阵进行该运算时.
+     * @return 行列式结果，结果精度为[Double]，中间计算精度为小数点后3000位.
+     * @see Det
+     */
+    fun det():Double = Det().toDouble()
 
     /**
      * 获取转置矩阵.
