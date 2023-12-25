@@ -1,5 +1,6 @@
 package yyd.mrycat.math.problem
 
+import jdk.jfr.Description
 import yyd.mrycat.math.combinatorics.orderedGroupingSpeciesNumber
 import yyd.mrycat.math.combinatorics.orderedIntegerPartition
 import yyd.mrycat.math.data.Matrix
@@ -69,6 +70,7 @@ fun gatherEventClusterEX(vararg probabilities:Double, InfiniteSeriesCalculationA
  * @throws MathIllegalException 当某个概率不属于0..1或概率总和不属于(1-1E-15)..(1+1E-15)时.
  * @see gatherEventClusterEX
  */
+@Description("正在开发中，请勿使用")
 fun gatherEventClusterEY(vararg probabilities:Double):BigDecimal
 {
     if(probabilities.any { it < 0.0 || it > 1.0 }) throw MathIllegalException("n个事件的概率均应属于0到1")

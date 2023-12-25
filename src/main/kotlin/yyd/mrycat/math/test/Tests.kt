@@ -25,16 +25,16 @@ fun nowTest() = runBlocking { test14() }
 fun test14(name:String = "组合生成函数")
 {
     println("----测试[$name]开始----")
-    println(combination(7, 3))
+    println(combination(11, 3))
     println("----测试[$name]结束----")
 }
 /*✔测试结果：符合预期*/
 fun test13(name:String = "集齐完备事件组期望次数公式")
 {
     println("----测试[$name]开始----")
-    //val eachProbability = arrayOf(1.0/6, 2.0/6, 3.0/6).toDoubleArray()//奇怪硬币默认项：7.29999
+    val eachProbability = arrayOf(1.0/6, 2.0/6, 3.0/6).toDoubleArray()//奇怪硬币默认项：7.29999
     //val eachProbability = arrayOf(1.0/6, 2.0/6, 1.5/6, 1.5/6).toDoubleArray()//默认项：9.13809
-    val eachProbability = arrayOf(1.0/20, 7.0/20, 3.0/20, 9.0/20).toDoubleArray()//默认项：21.907399
+    //val eachProbability = arrayOf(1.0/20, 7.0/20, 3.0/20, 9.0/20).toDoubleArray()//默认项：21.907399
     val EX = gatherEventClusterEX(*eachProbability)
     println(EX)
     for(n in 2..50)
