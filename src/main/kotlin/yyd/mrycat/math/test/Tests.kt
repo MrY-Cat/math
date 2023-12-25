@@ -19,7 +19,7 @@ fun test(name:String = "模板测试函数")
     println("----测试[$name]结束----")
 }
 
-fun nowTest() = runBlocking { test5() }
+fun nowTest() = runBlocking { test14() }
 
 /*✔测试结果：符合预期*/
 fun test14(name:String = "组合生成函数")
@@ -158,7 +158,7 @@ fun test6(name:String = "错排哪个快")
 fun test5(name:String = "Matrix.det")
 {
     println("----测试[$name]开始----")
-    val m1 = Matrix(5, 5) { _, _ -> (0..20).random() }
+    val m1 = Matrix(5, 5) { _, _ -> (0..30).random() }
     println("随机5阶整数矩阵M:\n$m1")
     println("M.det:${m1.det()}")
     val m2 = Matrix(3, 3, arrayOf(3.5, 1.7, 1.2, 1.0, 2.5, 0.0, 3.3, 1.5, 3.7))
