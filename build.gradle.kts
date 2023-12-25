@@ -4,8 +4,8 @@ plugins {
     kotlin("plugin.serialization") version kotlinVersion
 }
 
-group = "org.mirai.cat"
-version = "0.59.1"//生成的插件名称后的版本号
+group = "yyd.mrycat.math"
+version = "0.1.0-beta.2"
 
 repositories() {
     mavenCentral()
