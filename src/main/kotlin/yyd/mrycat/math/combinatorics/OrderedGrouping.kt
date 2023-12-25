@@ -37,7 +37,7 @@ fun orderedGroupingSpeciesNumber(vararg eachGroupCount:Long):BigInteger
  * @param eachGroupCount 每一组指定的个数.
  * @throws MathIllegalException 当某一组指定的个数为负数时.
  * @throws MathOverflowException 当计算中间值溢出[Long.MAX_VALUE]时.
- * @suppress 当N>20时，计算中间值N!将必定溢出，此时请使用[orderedGroupingSpeciesNumber].
+ * @suppress 当N>20时，计算中间值N!将必定溢出，此时请使用返回[BigInteger]的[同名函数][orderedGroupingSpeciesNumber].
  */
 fun orderedGroupingSpeciesNumber(vararg eachGroupCount:Int):Long
 {

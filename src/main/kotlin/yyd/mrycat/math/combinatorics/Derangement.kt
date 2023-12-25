@@ -32,7 +32,7 @@ fun D(n:Long):BigInteger
  * @return 正整数[n]的错排数.
  * @throws MathIllegalException 当[n]<1时.
  * @throws MathOverflowException 当返回值溢出[Long.MAX_VALUE]时.
- * @suppress 当[n]>20时返回值将必定溢出，此时请使用[D].
+ * @suppress 当[n]>20时返回值将必定溢出，此时请使用返回[BigInteger]的[D].
  */
 fun D(n:Int):Long
 {

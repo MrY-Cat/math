@@ -24,7 +24,7 @@ fun orderedIntegerPartitionSpeciesNumber(n:Long, split:Long):BigInteger = C(n-1,
  * @return 拆分情况的种类数.
  * @throws MathIllegalException 当[n]<=0或[split]<=0时.
  * @throws MathOverflowException 当返回值溢出[Long.MAX_VALUE]时.
- * @suppress 当对每个[n]依次增加[split]时，首先溢出的情况为([n]=68,31≤[split]≤38)、([n]=69,29≤[split]≤41)...此时请使用[orderedIntegerPartitionSpeciesNumber].
+ * @suppress 当对每个[n]依次增加[split]时，首先溢出的情况为([n]=68,31≤[split]≤38)、([n]=69,29≤[split]≤41)...此时请使用返回[BigInteger]的[同名函数][orderedIntegerPartitionSpeciesNumber].
  * @see orderedIntegerPartition
  */
 fun orderedIntegerPartitionSpeciesNumber(n:Int, split:Int):Long = C(n-1, split-1)
