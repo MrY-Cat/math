@@ -13,6 +13,7 @@ import java.math.RoundingMode
  * @param col 矩阵的总列数，访问时自1计.
  * @param init 指派r行c列元素的映射.
  * @param T 矩阵元素类型.
+ * @suppress 该矩阵并不是线程安全的，多线程操作矩阵数据可能无法达到预期.
  */
 class Matrix<T:Number>(val row:Int, val col:Int, private val init:(Int, Int) -> T)
 {
