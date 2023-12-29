@@ -1,3 +1,4 @@
+/**数学异常**/
 package yyd.mrycat.math.exception
 /*✔[RFC-1]*/
 
