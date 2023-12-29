@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "yyd.mrycat.math"
-version = "0.1.0-beta.2"
+version = "0.1.1-beta"
 /*
 tasks.dokkaJavadoc.configure {
     // 导出的文档目录路径
