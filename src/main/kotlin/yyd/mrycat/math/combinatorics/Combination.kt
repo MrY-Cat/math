@@ -1,5 +1,5 @@
 @file:Suppress("unUsed", "FunctionName")
-
+/**组合**/
 package yyd.mrycat.math.combinatorics
 /*✔[RFC-1]*/
 import jdk.jfr.Description

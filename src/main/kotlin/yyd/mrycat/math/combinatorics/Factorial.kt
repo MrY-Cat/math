@@ -1,3 +1,4 @@
+/**阶乘**/
 package yyd.mrycat.math.combinatorics
 /*✔[RFC-1]*/
 import yyd.mrycat.math.exception.MathIllegalException

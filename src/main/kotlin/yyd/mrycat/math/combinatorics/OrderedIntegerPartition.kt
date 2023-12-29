@@ -1,5 +1,5 @@
 @file:Suppress("unUsed", "FunctionName")
-
+/**正整数有序拆分**/
 package yyd.mrycat.math.combinatorics
 /*✔[RFC-1]*/
 import yyd.mrycat.math.data.Matrix
