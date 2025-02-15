@@ -6,7 +6,7 @@
 • 项目为开源项目，任何人都可以进行贡献。
 
 • 项目目前主要是本人面向需求（x）编程学习kotlin、对数学问题进行计算验证时增加相关功能(由于没有什么人贡献×
-### 二.目录结构：
+### 二.目录结构
 1.组合数学公式：实现在[combinatorics](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics)目录下，每个公式单独一个文件，例如[Factorial](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Factorial.kt)。
 
 2.自定义数据类：实现在[data](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/data)目录下，每个类单独一个文件，例如[Matrix](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/data/Matrix.kt)。
@@ -23,7 +23,7 @@
 
 8.若实现到其他数学方面的公式或函数，在[主目录](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math)下新开一个子目录。
 
-### 三.已实现内容：
+### 三.已实现内容
 
 #### 支持的数学公式：
 
@@ -47,7 +47,7 @@
 
 • [集齐完备事件组期望次数问题](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/problem/GatherEventCluster.kt)（加权完全图的随机游走覆盖时间？）
 
-### 四.欢迎贡献：
+### 四.欢迎贡献
 
 欢迎贡献代码，请fork代码到自己的仓库或新建分支，修改后再提交Pull request 。
 
@@ -66,7 +66,7 @@
 • 例如在[Derangement](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Derangement.kt)中，若采用简化公式D(n)=[n!/e+1/2]，则需使用更高精度的[MathConstant.E](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)，否则在n>18时计算将有误差。
 
 
-### 五.写在最后：
+### 五.写在最后
 
 • 代码水平和数学水平有限，如有错误、疏漏、意见欢迎提出。
 
