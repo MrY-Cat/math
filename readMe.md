@@ -1,6 +1,12 @@
 # my.math
 ## 基于kotlin的一个简单数学函数包
-### 一.目录结构：
+### 一.前言
+• 项目的出发点是发现kotlin自带的数学函数包中的数学函数较为有限和基础，试图开发一个在kotlin下专门提供丰富的数学函数和工具的包，以方便其他项目引入该包后直接调用。
+
+• 项目为开源项目，任何人都可以进行贡献。
+
+• 项目目前主要是本人面向需求（x）编程学习kotlin、对数学问题进行计算验证时增加相关功能(由于没有什么人贡献×
+### 二.目录结构
 1.组合数学公式：实现在[combinatorics](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics)目录下，每个公式单独一个文件，例如[Factorial](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Factorial.kt)。
 
 2.自定义数据类：实现在[data](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/data)目录下，每个类单独一个文件，例如[Matrix](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/data/Matrix.kt)。
@@ -17,9 +23,9 @@
 
 8.若实现到其他数学方面的公式或函数，在[主目录](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math)下新开一个子目录。
 
-### 二.支持的内容：
+### 三.已实现内容
 
-#### 支持的公式：
+#### 支持的数学公式：
 
 • [阶乘公式](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Factorial.kt)
 
@@ -33,15 +39,15 @@
 
 • [有序整数拆分(情况数&结果矩阵)](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/OrderedIntegerPartition.kt)
 
-#### 支持的数据：
+#### 支持的数据结构：
 
 • [矩阵](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/data/Matrix.kt)
 
-#### 支持的问题：
+#### 支持的数学问题：
 
 • [集齐完备事件组期望次数问题](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/problem/GatherEventCluster.kt)（加权完全图的随机游走覆盖时间？）
 
-### 三.欢迎贡献：
+### 四.欢迎贡献
 
 欢迎贡献代码，请fork代码到自己的仓库或新建分支，修改后再提交Pull request 。
 
@@ -60,13 +66,11 @@
 • 例如在[Derangement](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/combinatorics/Derangement.kt)中，若采用简化公式D(n)=[n!/e+1/2]，则需使用更高精度的[MathConstant.E](https://github.com/MrY-Cat/math/tree/master/src/main/kotlin/yyd/mrycat/math/util/MathConstant.kt)，否则在n>18时计算将有误差。
 
 
-### 四.写在最后：
+### 五.写在最后
 
-• 开发该项目的出发点是面向需求（x）编程学习kotlin、对数学问题进行计算验证、方便后续遇到相关数学问题时使用。
+• 代码水平和数学水平有限，如有错误、疏漏、意见欢迎提出。
 
-• 代码水平和数学水平有限，如有错误和疏漏欢迎指出。
-
-• [代码风格](https://github.com/MrY-Cat/math/tree/master/kotlinCodeStyle.xml)可能与经典的左大括号不换行相违背，为个人遗留习惯，不喜勿喷（dog）。
+• [个人代码风格](https://github.com/MrY-Cat/math/tree/master/kotlinCodeStyle.xml)可能与经典的左大括号不换行相违背，为个人遗留习惯，不喜勿喷（dog）。
 
 • 欢迎路过的大佬提交Pull request贡献代码或发布issue。
 
